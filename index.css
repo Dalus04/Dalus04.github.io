@@ -601,3 +601,56 @@ body {
     height: auto;
     object-fit: contain;
 }
+
+.video-section {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.video-frame {
+    position: relative;
+    background-color: #fff;
+    padding: 15px 15px 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    transition: all 0.3s ease;
+    transform: rotate(var(--rotation));
+    display: inline-block;
+}
+
+.video-frame:hover {
+    transform: rotate(0deg) scale(1.03);
+    z-index: 10;
+}
+
+.video-frame video {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: sepia(10%);
+    transition: filter 0.3s ease;
+    border: 1px solid #e0d9c5;
+}
+
+.video-frame:hover video {
+    filter: sepia(0%);
+}
+
+.video-caption {
+    font-family: "Special Elite", cursive;
+    text-align: center;
+    padding: 15px 5px 5px;
+    font-size: 0.95rem;
+    color: #5d4a33;
+}
+
+@media (max-width: 768px) {
+    .video-frame {
+        max-width: 90%;
+        padding: 10px 10px 35px;
+    }
+}
