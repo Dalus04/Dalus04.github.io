@@ -1,5 +1,3 @@
-// Sistema de modales
-
 // Funciones del modal
 function showModal() {
     const overlay = document.getElementById("modalOverlay")
@@ -8,12 +6,10 @@ function showModal() {
     overlay.classList.add("active")
     createModalParticles()
 
-    // Prevenir scroll del body
     document.body.style.overflow = "hidden"
 }
 
 function closeModal(event) {
-    // Solo cerrar si se hace clic en el overlay o en el botón cerrar
     if (event && event.target !== document.getElementById("modalOverlay")) {
         return
     }
@@ -23,7 +19,6 @@ function closeModal(event) {
 
     overlay.classList.remove("active")
 
-    // Restaurar scroll del body
     document.body.style.overflow = "auto"
 }
 
@@ -32,7 +27,7 @@ function createModalParticles() {
     const particlesContainer = document.getElementById("modalParticles")
     if (!particlesContainer) return
 
-    particlesContainer.innerHTML = "" // Limpiar partículas anteriores
+    particlesContainer.innerHTML = ""
 
     for (let i = 0; i < 15; i++) {
         const particle = document.createElement("div")

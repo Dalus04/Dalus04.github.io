@@ -1,6 +1,4 @@
-// Efectos globales reutilizables
-
-// Crear partículas brillantes
+// Partículas brillantes
 function createSparkles() {
     const sparklesContainer = document.getElementById("sparkles")
     if (!sparklesContainer) return
@@ -15,7 +13,7 @@ function createSparkles() {
     }
 }
 
-// Crear corazones flotantes
+// Corazones flotantes
 function createFloatingHearts() {
     const heartsContainer = document.getElementById("hearts") || document.getElementById("floating-hearts")
     if (!heartsContainer) return
@@ -37,7 +35,7 @@ function createFloatingHearts() {
     }, 2000)
 }
 
-// Crear pétalos cayendo
+// Pétalos cayendo
 function createFallingPetals() {
     const petalsContainer = document.getElementById("falling-petals")
     if (!petalsContainer) return
@@ -60,7 +58,7 @@ function createFallingPetals() {
     }, 1500)
 }
 
-// Crear brillos alrededor del ramo
+// Brillos alrededor del ramo
 function createBouquetSparkles() {
     const sparklesContainer = document.getElementById("bouquet-sparkles")
     if (!sparklesContainer) return
@@ -83,7 +81,7 @@ function createBouquetSparkles() {
     }
 }
 
-// Efecto de partículas al hacer clic
+// Efecto de partículas al hacer click
 function createClickEffect(x, y) {
     for (let i = 0; i < 6; i++) {
         const particle = document.createElement("div")
@@ -131,7 +129,7 @@ function createClickEffect(x, y) {
     }
 }
 
-// Reproducir sonido de éxito
+// Reproducir sonido
 function playSuccessSound() {
     try {
         const audioContext = new (window.AudioContext || window.webkitAudioContext)()
@@ -183,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 600)
         })
 
-        // Efectos de hover adicionales
+        // Efectos de hover
         button.addEventListener("mouseenter", () => {
             button.style.filter = "brightness(1.1) saturate(1.2)"
         })
@@ -193,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     })
 
-    // Agregar animación de ripple
+    // Animación de ripple
     const style = document.createElement("style")
     style.textContent = `
         @keyframes ripple {
@@ -205,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `
     document.head.appendChild(style)
 
-    // Efecto de partículas al hacer clic en cualquier parte
+    // Efecto de partículas al hacer click 
     document.addEventListener("click", (e) => {
         if (!e.target.classList.contains("btn") && !e.target.closest(".btn")) {
             createClickEffect(e.clientX, e.clientY)

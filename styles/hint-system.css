@@ -98,7 +98,7 @@
     }
 }
 
-/* Efecto de resaltado de pista - MEJORADO */
+/* Efecto de resaltado de pista */
 .hint-highlight {
     animation: hintFlash 0.5s ease-in-out infinite !important;
     z-index: 999 !important;

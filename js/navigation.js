@@ -1,7 +1,5 @@
-// Sistema de navegación entre pantallas
 
 function navigateTo(page) {
-    // Efecto de transición suave
     document.body.style.transition = "opacity 0.5s ease-out"
     document.body.style.opacity = "0"
 
@@ -10,12 +8,10 @@ function navigateTo(page) {
     }, 500)
 }
 
-// Función para volver atrás
 function goBack() {
     window.history.back()
 }
 
-// Precargar páginas para navegación más rápida
 function preloadPages() {
     const pages = ["index.html", "game-scene.html", "romantic-message.html", "final-screen.html"]
 
@@ -27,11 +23,9 @@ function preloadPages() {
     })
 }
 
-// Inicializar navegación
 document.addEventListener("DOMContentLoaded", () => {
     preloadPages()
 
-    // Restaurar opacidad al cargar
     setTimeout(() => {
         document.body.style.opacity = "1"
     }, 100)

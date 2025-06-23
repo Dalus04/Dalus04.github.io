@@ -7,7 +7,6 @@ let hintUsed = false
 let hintCooldown = false
 let gameIsPaused = false
 
-// Agregar mensajes románticos para la playa
 const romanticMessages = {
     // Parque (3 objetos)
     flor: "🌹 Esta rosa me recuerda a tu belleza, siempre floreciendo en mi corazón 💕",
@@ -37,7 +36,7 @@ const romanticMessages = {
 // Elementos del DOM
 let hiddenObjects, realObjects, decoyObjects, foundCountElement, nextButton, congratulationsElement, objectIcons
 
-// Función para reproducir sonidos
+// Reproducir sonidos
 function playSound(type) {
     try {
         const audioContext = new (window.AudioContext || window.webkitAudioContext)()
@@ -115,20 +114,16 @@ function initGameScene(config) {
         return
     }
 
-    // Configurar event listeners
     setupObjectListeners()
 
-    // Inicializar contador
     updateFoundCount()
 
-    // Pistas visuales ocasionales
     setupSubtleHints()
 
-    // Cargar estilos
     loadGameStyles()
 }
 
-// Configurar listeners de objetos
+// Listeners de objetos
 function setupObjectListeners() {
     hiddenObjects.forEach((object, index) => {
         object.addEventListener("click", handleObjectClick)
@@ -200,7 +195,7 @@ function setupSubtleHints() {
     }
 }
 
-// Manejar clic en objeto
+// Manejar click en objeto
 function handleObjectClick(event) {
     if (gameIsPaused) return
 
@@ -219,7 +214,6 @@ function handleObjectClick(event) {
         foundObjects.add(objectType)
         object.classList.add("found")
 
-        // Pausar el juego
         pauseGame()
 
         // Efectos visuales
@@ -231,7 +225,7 @@ function handleObjectClick(event) {
         // Reproducir sonido de éxito
         playSound("success")
 
-        // Mostrar mensaje romántico
+        // Mostrar mensaje 
         showRomanticMessage(objectType, () => {
             resumeGame()
 
@@ -247,7 +241,7 @@ function handleObjectClick(event) {
     }
 }
 
-// Mostrar mensaje romántico con barra de progreso
+// Mostrar mensaje con barra de progreso
 function showRomanticMessage(objectType, callback) {
     const message = romanticMessages[objectType] || "💕 ¡Encontraste un recuerdo especial! 💕"
 
@@ -376,7 +370,7 @@ function useHint() {
         return
     }
 
-    // Resaltar objetos inmediatamente - CORREGIDO PARA PLAYA
+    // Resaltar objetos inmediatamente
     unfoundObjects.forEach((object) => {
         // Guardar estilos originales
         const originalOpacity = object.style.opacity || (sceneName === "beach" ? "0.1" : "0.4")
@@ -410,7 +404,7 @@ function useHint() {
             object.style.transform = originalTransform
             object.style.zIndex = originalZIndex
             object.style.mixBlendMode = originalMixBlend
-            object.style.pointerEvents = "auto" // IMPORTANTE: mantener clickeable
+            object.style.pointerEvents = "auto"
 
             setTimeout(() => {
                 object.style.transition = "all 0.3s ease"
@@ -526,7 +520,6 @@ function createEnhancedParticleEffect(object) {
     setTimeout(() => wave.remove(), 1200)
 }
 
-// Actualizar UI
 function updateFoundCount() {
     if (foundCountElement) {
         foundCountElement.textContent = foundObjects.size
@@ -868,7 +861,6 @@ function loadGameStyles() {
     document.head.appendChild(additionalStyles)
 }
 
-// Inicializar cuando se carga la página
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM cargado, esperando configuración de escena...")
 })
