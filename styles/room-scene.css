@@ -1,0 +1,740 @@
+/* Estilos para la escena de la habitación */
+.room-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f5f5dc 0%, #fff8dc 30%, #fffacd 60%, #f0f8ff 100%);
+    overflow: hidden;
+}
+
+/* Ventanas - Múltiples */
+.window {
+    position: absolute;
+    z-index: 2;
+}
+
+.window1 {
+    top: 8%;
+    right: 12%;
+    width: 180px;
+    height: 130px;
+}
+
+.window2 {
+    top: 15%;
+    left: 5%;
+    width: 120px;
+    height: 90px;
+}
+
+.window-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #8b4513, #a0522d);
+    border-radius: 10px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.window-view {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    background: linear-gradient(to bottom, #87ceeb 0%, #98d8e8 40%, #90ee90 100%);
+    border-radius: 5px;
+    opacity: 0.9;
+}
+
+.curtains {
+    position: absolute;
+    top: 0;
+    left: -8px;
+    width: 35px;
+    height: 100%;
+    background: linear-gradient(to right, #ffb6c1 0%, #ff69b4 50%, #ffb6c1 100%);
+    border-radius: 0 8px 8px 0;
+    opacity: 0.8;
+}
+
+.curtains::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -27px;
+    width: 35px;
+    height: 100%;
+    background: linear-gradient(to left, #ffb6c1 0%, #ff69b4 50%, #ffb6c1 100%);
+    border-radius: 8px 0 0 8px;
+    opacity: 0.8;
+}
+
+/* Cama */
+.bed {
+    position: absolute;
+    bottom: 15%;
+    left: 8%;
+    width: 280px;
+    height: 140px;
+    z-index: 3;
+}
+
+.bed-frame {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(to bottom, #8b4513, #a0522d);
+    border-radius: 8px;
+}
+
+.pillows {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    width: 70px;
+    height: 35px;
+    background: linear-gradient(45deg, #ffe4e1, #ffc0cb);
+    border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.pillows::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50px;
+    width: 70px;
+    height: 35px;
+    background: linear-gradient(45deg, #e6e6fa, #dda0dd);
+    border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.blanket {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 100%;
+    height: 55px;
+    background: linear-gradient(45deg, #b0e0e6 0%, #87ceeb 25%, #b0e0e6 50%, #87ceeb 75%, #b0e0e6 100%);
+    border-radius: 8px;
+    opacity: 0.9;
+}
+
+/* Escritorios - Múltiples */
+.desk {
+    position: absolute;
+    z-index: 3;
+}
+
+.desk1 {
+    bottom: 12%;
+    right: 15%;
+    width: 180px;
+    height: 100px;
+}
+
+.desk2 {
+    top: 45%;
+    right: 5%;
+    width: 120px;
+    height: 80px;
+}
+
+.desk-surface {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    background: linear-gradient(to bottom, #deb887, #d2b48c);
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.desk-lamp {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    width: 25px;
+    height: 50px;
+    background: linear-gradient(to bottom, #ffd700, #ffa500);
+    border-radius: 12px 12px 4px 4px;
+}
+
+.desk-lamp::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -8px;
+    width: 40px;
+    height: 15px;
+    background: linear-gradient(45deg, #ffd700, #ffa500);
+    border-radius: 50%;
+}
+
+.desk-items {
+    position: absolute;
+    bottom: 65px;
+    left: 15px;
+    width: 80px;
+    height: 15px;
+    background: linear-gradient(to right, #ff69b4 0%, #ffb6c1 25%, #87ceeb 50%, #98fb98 75%, #dda0dd 100%);
+    border-radius: 8px;
+    opacity: 0.7;
+}
+
+/* Estanterías - Múltiples */
+.bookshelf {
+    position: absolute;
+    z-index: 2;
+}
+
+.bookshelf1 {
+    top: 18%;
+    left: 3%;
+    width: 100px;
+    height: 180px;
+}
+
+.bookshelf2 {
+    top: 25%;
+    right: 45%;
+    width: 80px;
+    height: 140px;
+}
+
+.shelf {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: linear-gradient(to bottom, #8b4513, #a0522d);
+    border-radius: 3px;
+}
+
+.shelf1 {
+    top: 0;
+}
+
+.shelf2 {
+    top: 50px;
+}
+
+.shelf3 {
+    top: 100px;
+}
+
+.books {
+    position: absolute;
+    top: 12px;
+    left: 4px;
+    width: 90%;
+    height: 35px;
+    background: linear-gradient(to right, #ff6b6b 0%, #4ecdc4 20%, #45b7d1 40%, #96ceb4 60%, #ffeaa7 80%, #dda0dd 100%);
+    border-radius: 2px;
+}
+
+.books::after {
+    content: "";
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    background: linear-gradient(to right, #a29bfe 0%, #6c5ce7 25%, #fd79a8 50%, #fdcb6e 75%, #e17055 100%);
+    border-radius: 2px;
+}
+
+/* Alfombras - Múltiples */
+.carpet {
+    position: absolute;
+    background: radial-gradient(ellipse, #dda0dd 0%, #da70d6 30%, #ba55d3 60%, #9370db 100%);
+    border-radius: 50%;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.carpet1 {
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 25%;
+}
+
+.carpet2 {
+    top: 60%;
+    right: 10%;
+    width: 30%;
+    height: 15%;
+}
+
+/* Plantas - Más distribuidas */
+.plant {
+    position: absolute;
+    width: 35px;
+    height: 70px;
+    z-index: 2;
+}
+
+.plant1 {
+    bottom: 8%;
+    left: 2%;
+    background: linear-gradient(to top, #8b4513 0%, #8b4513 30%, #228b22 30%, #32cd32 100%);
+    border-radius: 18px 18px 4px 4px;
+}
+
+.plant2 {
+    bottom: 5%;
+    right: 3%;
+    background: linear-gradient(to top, #a0522d 0%, #a0522d 25%, #228b22 25%, #90ee90 100%);
+    border-radius: 18px 18px 4px 4px;
+}
+
+.plant3 {
+    top: 40%;
+    left: 25%;
+    background: linear-gradient(to top, #8b4513 0%, #8b4513 28%, #228b22 28%, #32cd32 100%);
+    border-radius: 18px 18px 4px 4px;
+}
+
+.plant4 {
+    top: 50%;
+    right: 25%;
+    background: linear-gradient(to top, #a0522d 0%, #a0522d 32%, #228b22 32%, #90ee90 100%);
+    border-radius: 18px 18px 4px 4px;
+}
+
+/* Cuadros en las paredes con fotos MÁS GRANDES */
+.picture {
+    position: absolute;
+    width: 100px;
+    height: 75px;
+    background: white;
+    border: 4px solid #8b4513;
+    border-radius: 8px;
+    z-index: 2;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    background-image: url("/placeholder.svg?height=75&width=100");
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+.picture:hover {
+    transform: scale(1.05);
+}
+
+.picture1 {
+    top: 25%;
+    left: 35%;
+}
+
+.picture2 {
+    top: 30%;
+    right: 30%;
+}
+
+.picture::before {
+    content: "💕";
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    font-size: 20px;
+    color: #ff69b4;
+    background: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+    border: 2px solid #ff69b4;
+}
+
+/* Marco decorativo dorado */
+.picture::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 2px solid #daa520;
+    border-radius: 6px;
+    z-index: -1;
+}
+
+/* Lámpara de techo */
+.ceiling-lamp {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 60px;
+    background: radial-gradient(ellipse, #fffacd, #ffd700);
+    border-radius: 50%;
+    z-index: 2;
+    opacity: 0.8;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Objetos ocultos específicos de la habitación - MEJOR OCULTADOS */
+.hidden-object {
+    position: absolute;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.3;
+    filter: brightness(0.5) saturate(0.4) drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2));
+    z-index: 4;
+}
+
+.ticket-cine {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    color: #f5f5dc;
+}
+
+.collar-corazon {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    color: #c0c0c0;
+}
+
+.nota-amor {
+    position: absolute;
+    bottom: 35%;
+    right: 35%;
+    color: #fffacd;
+}
+
+.perfume-rosa {
+    position: absolute;
+    top: 60%;
+    right: 20%;
+    color: #ffb6c1;
+}
+
+.taza-cafe {
+    position: absolute;
+    bottom: 25%;
+    right: 25%;
+    color: #8b4513;
+}
+
+.libro-poemas {
+    position: absolute;
+    top: 40%;
+    left: 15%;
+    color: #4169e1;
+}
+
+.dibujo-corazones {
+    position: absolute;
+    bottom: 40%;
+    left: 35%;
+    color: #ff69b4;
+}
+
+.rosa-roja {
+    position: absolute;
+    top: 70%;
+    left: 45%;
+    color: #dc143c;
+}
+
+/* Objetos falsos - MEJOR OCULTADOS */
+.decoy-llave {
+    position: absolute;
+    top: 80%;
+    right: 45%;
+    color: #daa520;
+}
+
+.decoy-moneda {
+    position: absolute;
+    bottom: 55%;
+    right: 20%;
+    color: #ffd700;
+}
+
+.decoy-boton {
+    position: absolute;
+    top: 85%;
+    left: 55%;
+    color: #696969;
+}
+
+/* Efectos especiales para habitación */
+.hidden-object[data-real="true"]:hover {
+    opacity: 1 !important;
+    filter: brightness(1.4) saturate(1.3) drop-shadow(0 0 20px #ffd700) !important;
+    transform: scale(1.3);
+    z-index: 100 !important;
+    animation: realObjectGlow 0.5s ease-in-out;
+}
+
+.hidden-object[data-real="false"]:hover {
+    opacity: 0.8 !important;
+    filter: brightness(1.1) saturate(1.1) drop-shadow(0 0 10px #ff6b6b) !important;
+    transform: scale(1.1);
+}
+
+@keyframes realObjectGlow {
+
+    0%,
+    100% {
+        filter: brightness(1.4) saturate(1.3) drop-shadow(0 0 20px #ffd700);
+    }
+
+    50% {
+        filter: brightness(1.6) saturate(1.5) drop-shadow(0 0 30px #ffd700);
+    }
+}
+
+/* UI específica de la habitación con estilo Frutiger Aero */
+.game-ui {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(139, 69, 19, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.game-ui::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg,
+            rgba(139, 69, 19, 0.3),
+            rgba(210, 180, 140, 0.2),
+            rgba(222, 184, 135, 0.3),
+            rgba(139, 69, 19, 0.3));
+    border-radius: 22px;
+    z-index: -1;
+    animation: roomUIGlow 4s ease-in-out infinite;
+}
+
+@keyframes roomUIGlow {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.scene-title {
+    font-size: 1.8rem;
+    color: #8b4513;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(139, 69, 19, 0.3);
+}
+
+/* Botón de pista con estilo Frutiger Aero para habitación */
+.hint-button {
+    background: linear-gradient(135deg, #deb887 0%, #d2b48c 25%, #bc9a6a 50%, #a0522d 75%, #8b4513 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hint-button::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, rgba(222, 184, 135, 0.8), rgba(210, 180, 140, 0.6), rgba(188, 154, 106, 0.8));
+    border-radius: 50%;
+    z-index: -1;
+    animation: roomHintGlow 3s ease-in-out infinite;
+}
+
+@keyframes roomHintGlow {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* Mensaje de objeto falso */
+.decoy-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 107, 107, 0.95);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.decoy-message.show {
+    opacity: 1;
+    visibility: visible;
+    animation: shake 0.5s ease-in-out;
+}
+
+.decoy-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.decoy-icon {
+    font-size: 1.5rem;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(-50%, -50%) rotate(-2deg);
+    }
+
+    75% {
+        transform: translate(-50%, -50%) rotate(2deg);
+    }
+}
+
+/* Felicitación especial para habitación */
+.room-congrats .congrats-content {
+    position: relative;
+    padding: 40px;
+}
+
+.congrats-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart-burst {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #ff69b4, transparent);
+    border-radius: 50%;
+    animation: heartBurst 2s ease-out infinite;
+}
+
+.sparkle-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(2px 2px at 20% 30%, #ffd700, transparent),
+        radial-gradient(2px 2px at 40% 70%, #ff69b4, transparent), radial-gradient(1px 1px at 90% 40%, #87ceeb, transparent),
+        radial-gradient(1px 1px at 60% 10%, #98fb98, transparent);
+    animation: sparkleMove 3s ease-in-out infinite;
+}
+
+@keyframes heartBurst {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes sparkleMove {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: rotate(180deg);
+        opacity: 1;
+    }
+}
+
+/* Responsive para habitación */
+@media (max-width: 768px) {
+    .window {
+        width: 150px;
+        height: 100px;
+    }
+
+    .bed {
+        width: 200px;
+        height: 100px;
+    }
+
+    .desk {
+        width: 150px;
+        height: 80px;
+    }
+
+    .bookshelf {
+        width: 80px;
+        height: 150px;
+    }
+
+    .picture {
+        width: 80px;
+        height: 60px;
+    }
+
+    .hidden-object {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,185 @@
+/* Sistema de pistas visuales */
+.hint-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffa500 50%, #ff8c00 100%);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4), 0 4px 15px rgba(255, 215, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1000;
+    animation: hintPulse 2s ease-in-out infinite;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.hint-button:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5), 0 8px 25px rgba(255, 215, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    animation: none;
+}
+
+.hint-button:active {
+    transform: translateY(-3px) scale(1.05);
+    transition: transform 0.1s ease;
+}
+
+.hint-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.hint-icon {
+    font-size: 1.8rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.hint-button:hover .hint-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.hint-text {
+    font-family: "Dancing Script", cursive;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.hint-cooldown {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hint-cooldown.active {
+    opacity: 1;
+    animation: spin 2s linear;
+}
+
+@keyframes hintPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4), 0 4px 15px rgba(255, 215, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 12px 35px rgba(255, 215, 0, 0.6), 0 6px 20px rgba(255, 215, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Efecto de resaltado de pista - MEJORADO */
+.hint-highlight {
+    animation: hintFlash 0.5s ease-in-out infinite !important;
+    z-index: 999 !important;
+    position: relative !important;
+}
+
+@keyframes hintFlash {
+
+    0%,
+    100% {
+        opacity: 1 !important;
+        filter: brightness(3) saturate(2) drop-shadow(0 0 25px #ffd700) !important;
+        transform: scale(1.3) !important;
+        box-shadow: 0 0 25px #ffd700, 0 0 50px #ffd700 !important;
+    }
+
+    50% {
+        opacity: 1 !important;
+        filter: brightness(4) saturate(2.5) drop-shadow(0 0 40px #ffd700) !important;
+        transform: scale(1.6) !important;
+        box-shadow: 0 0 40px #ffd700, 0 0 80px #ffd700 !important;
+    }
+}
+
+/* Mensaje de pista usada */
+.hint-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 215, 0, 0.95);
+    color: #8b4513;
+    padding: 15px 25px;
+    border-radius: 25px;
+    font-family: "Dancing Script", cursive;
+    font-size: 1.3rem;
+    font-weight: 600;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.hint-message.show {
+    opacity: 1;
+    visibility: visible;
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateX(-50%) translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive para sistema de pistas */
+@media (max-width: 768px) {
+    .hint-button {
+        width: 60px;
+        height: 60px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .hint-icon {
+        font-size: 1.4rem;
+    }
+
+    .hint-text {
+        font-size: 0.8rem;
+    }
+
+    .hint-message {
+        font-size: 1.1rem;
+        padding: 12px 20px;
+    }
+}

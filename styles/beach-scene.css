@@ -1,0 +1,1419 @@
+/* Estilos para la escena de playa con estilo Frutiger Aero */
+.beach-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(to bottom,
+            #ff6b9d 0%,
+            #ff8e9b 15%,
+            #ffb199 30%,
+            #ffd497 45%,
+            #fff7b7 60%,
+            #e8f4fd 75%,
+            #b8e6ff 90%,
+            #87ceeb 100%);
+}
+
+/* Cielo degradado al atardecer */
+.sunset-sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    z-index: 1;
+}
+
+.sky-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at 70% 20%,
+            rgba(255, 107, 157, 0.8) 0%,
+            rgba(255, 142, 155, 0.6) 25%,
+            rgba(255, 177, 153, 0.4) 50%,
+            rgba(255, 212, 151, 0.2) 75%,
+            transparent 100%);
+    animation: skyShimmer 8s ease-in-out infinite;
+}
+
+@keyframes skyShimmer {
+
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Sol */
+.sun {
+    position: absolute;
+    top: 15%;
+    right: 25%;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, #ffe55c 0%, #ffd93d 30%, #ffc107 60%, #ff9800 80%, #ff6b35 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(255, 229, 92, 0.8), 0 0 100px rgba(255, 217, 61, 0.6), 0 0 150px rgba(255, 193, 7, 0.4);
+    animation: sunPulse 6s ease-in-out infinite;
+    z-index: 2;
+}
+
+@keyframes sunPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 50px rgba(255, 229, 92, 0.8), 0 0 100px rgba(255, 217, 61, 0.6), 0 0 150px rgba(255, 193, 7, 0.4);
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 60px rgba(255, 229, 92, 1), 0 0 120px rgba(255, 217, 61, 0.8), 0 0 180px rgba(255, 193, 7, 0.6);
+    }
+}
+
+/* Rayos del sol */
+.sun-rays {
+    position: absolute;
+    top: 15%;
+    right: 25%;
+    width: 120px;
+    height: 120px;
+    z-index: 1;
+}
+
+.sun-rays::before,
+.sun-rays::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 229, 92, 0.6) 20%,
+            rgba(255, 229, 92, 0.8) 50%,
+            rgba(255, 229, 92, 0.6) 80%,
+            transparent 100%);
+    transform: translate(-50%, -50%);
+    animation: sunRaysRotate 20s linear infinite;
+}
+
+.sun-rays::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+    animation-delay: -10s;
+}
+
+@keyframes sunRaysRotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Nubes del atardecer */
+.clouds-sunset {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.cloud-sunset {
+    position: absolute;
+    background: linear-gradient(45deg, rgba(255, 182, 193, 0.8), rgba(255, 160, 180, 0.6), rgba(255, 140, 170, 0.4));
+    border-radius: 50px;
+    animation: cloudDriftSunset 30s infinite linear;
+    filter: blur(1px);
+}
+
+.cloud-sunset::before,
+.cloud-sunset::after {
+    content: "";
+    position: absolute;
+    background: linear-gradient(45deg, rgba(255, 182, 193, 0.8), rgba(255, 160, 180, 0.6));
+    border-radius: 50px;
+}
+
+.cloud-sunset.cloud1 {
+    width: 100px;
+    height: 40px;
+    top: 10%;
+    left: -100px;
+    animation-duration: 35s;
+}
+
+.cloud-sunset.cloud1::before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 20px;
+}
+
+.cloud-sunset.cloud1::after {
+    width: 60px;
+    height: 40px;
+    top: -15px;
+    right: 20px;
+}
+
+.cloud-sunset.cloud2 {
+    width: 80px;
+    height: 30px;
+    top: 20%;
+    left: -80px;
+    animation-duration: 40s;
+    animation-delay: -10s;
+}
+
+.cloud-sunset.cloud2::before {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    left: 15px;
+}
+
+.cloud-sunset.cloud2::after {
+    width: 50px;
+    height: 30px;
+    top: -10px;
+    right: 15px;
+}
+
+.cloud-sunset.cloud3 {
+    width: 120px;
+    height: 50px;
+    top: 5%;
+    left: -120px;
+    animation-duration: 45s;
+    animation-delay: -20s;
+}
+
+.cloud-sunset.cloud3::before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 25px;
+}
+
+.cloud-sunset.cloud3::after {
+    width: 70px;
+    height: 50px;
+    top: -20px;
+    right: 25px;
+}
+
+.cloud-sunset.cloud4 {
+    width: 90px;
+    height: 35px;
+    top: 25%;
+    left: -90px;
+    animation-duration: 38s;
+    animation-delay: -15s;
+}
+
+.cloud-sunset.cloud4::before {
+    width: 45px;
+    height: 45px;
+    top: -22px;
+    left: 18px;
+}
+
+.cloud-sunset.cloud4::after {
+    width: 55px;
+    height: 35px;
+    top: -12px;
+    right: 18px;
+}
+
+.cloud-sunset.cloud5 {
+    width: 110px;
+    height: 45px;
+    top: 15%;
+    left: -110px;
+    animation-duration: 42s;
+    animation-delay: -25s;
+}
+
+.cloud-sunset.cloud5::before {
+    width: 55px;
+    height: 55px;
+    top: -27px;
+    left: 22px;
+}
+
+.cloud-sunset.cloud5::after {
+    width: 65px;
+    height: 45px;
+    top: -17px;
+    right: 22px;
+}
+
+@keyframes cloudDriftSunset {
+    0% {
+        transform: translateX(-150px);
+    }
+
+    100% {
+        transform: translateX(calc(100vw + 150px));
+    }
+}
+
+/* Océano con reflejos */
+.ocean {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    z-index: 4;
+}
+
+.water-surface {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(135, 206, 235, 0.8) 0%,
+            rgba(100, 180, 220, 0.9) 30%,
+            rgba(70, 150, 200, 1) 60%,
+            rgba(50, 120, 180, 1) 100%);
+    animation: waterShimmer 4s ease-in-out infinite;
+}
+
+@keyframes waterShimmer {
+
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.water-reflection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(255, 229, 92, 0.1) 20%,
+            rgba(255, 217, 61, 0.2) 40%,
+            rgba(255, 193, 7, 0.1) 60%,
+            transparent 100%);
+    animation: reflectionWave 3s ease-in-out infinite;
+}
+
+@keyframes reflectionWave {
+
+    0%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(1.1);
+    }
+}
+
+/* Olas */
+.waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 120%;
+    height: 30px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.3) 25%,
+            rgba(255, 255, 255, 0.5) 50%,
+            rgba(255, 255, 255, 0.3) 75%,
+            transparent 100%);
+    border-radius: 50% 50% 0 0;
+    animation: waveMotion 6s ease-in-out infinite;
+}
+
+.waves.wave1 {
+    bottom: 0;
+    animation-delay: 0s;
+    opacity: 0.8;
+}
+
+.waves.wave2 {
+    bottom: 15px;
+    animation-delay: -1.5s;
+    opacity: 0.6;
+    transform: scaleX(0.9);
+}
+
+.waves.wave3 {
+    bottom: 30px;
+    animation-delay: -3s;
+    opacity: 0.4;
+    transform: scaleX(0.8);
+}
+
+.waves.wave4 {
+    bottom: 45px;
+    animation-delay: -4.5s;
+    opacity: 0.2;
+    transform: scaleX(0.7);
+}
+
+@keyframes waveMotion {
+
+    0%,
+    100% {
+        transform: translateX(-10%) scaleX(1);
+    }
+
+    50% {
+        transform: translateX(10%) scaleX(1.1);
+    }
+}
+
+/* Reflejo del sol en el agua */
+.sun-reflection {
+    position: absolute;
+    top: 20%;
+    right: 25%;
+    width: 80px;
+    height: 200px;
+    background: linear-gradient(to bottom,
+            rgba(255, 229, 92, 0.6) 0%,
+            rgba(255, 217, 61, 0.4) 30%,
+            rgba(255, 193, 7, 0.2) 60%,
+            transparent 100%);
+    border-radius: 50%;
+    animation: sunReflectionWave 3s ease-in-out infinite;
+    filter: blur(2px);
+}
+
+@keyframes sunReflectionWave {
+
+    0%,
+    100% {
+        transform: scaleY(1) scaleX(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scaleY(1.2) scaleX(0.8);
+        opacity: 0.8;
+    }
+}
+
+/* Arena de la playa */
+.beach-sand {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    z-index: 5;
+}
+
+.sand-texture {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #f4e4bc 0%, #e6d3a3 30%, #d4c18a 60%, #c2af71 100%);
+    opacity: 0.9;
+}
+
+.sand-ripples {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(90deg,
+            transparent 0px,
+            rgba(255, 255, 255, 0.1) 2px,
+            transparent 4px,
+            rgba(0, 0, 0, 0.05) 6px,
+            transparent 8px);
+    animation: sandRipple 8s ease-in-out infinite;
+}
+
+@keyframes sandRipple {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+}
+
+/* Palmeras */
+.palm-tree {
+    position: absolute;
+    bottom: 15%;
+    z-index: 6;
+}
+
+.palm1 {
+    left: 5%;
+    transform: scale(1.2);
+}
+
+.palm2 {
+    right: 10%;
+    transform: scale(0.9);
+}
+
+.palm3 {
+    left: 85%;
+    transform: scale(0.7);
+}
+
+.palm-trunk {
+    width: 25px;
+    height: 180px;
+    background: linear-gradient(to right, #8b4513 0%, #a0522d 30%, #cd853f 60%, #d2b48c 100%);
+    border-radius: 12px;
+    position: relative;
+    animation: palmSway 6s ease-in-out infinite;
+}
+
+.palm-trunk::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: -2px;
+    width: 29px;
+    height: 8px;
+    background: #654321;
+    border-radius: 50%;
+}
+
+.palm-trunk::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -2px;
+    width: 29px;
+    height: 8px;
+    background: #654321;
+    border-radius: 50%;
+}
+
+.palm-leaves {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(ellipse, #228b22 0%, #32cd32 30%, #90ee90 60%, #98fb98 100%);
+    border-radius: 50%;
+    animation: leavesRustle 4s ease-in-out infinite;
+}
+
+.palm-leaves::before,
+.palm-leaves::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    background: linear-gradient(45deg, #228b22, #32cd32);
+    border-radius: 50%;
+}
+
+.palm-leaves::before {
+    top: -20px;
+    left: -30px;
+    transform: rotate(-30deg);
+}
+
+.palm-leaves::after {
+    top: -20px;
+    right: -30px;
+    transform: rotate(30deg);
+}
+
+@keyframes palmSway {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+@keyframes leavesRustle {
+
+    0%,
+    100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(-50%) rotate(5deg);
+    }
+}
+
+/* Rocas en la playa */
+.beach-rock {
+    position: absolute;
+    bottom: 20%;
+    background: linear-gradient(45deg, #696969 0%, #808080 30%, #a9a9a9 60%, #c0c0c0 100%);
+    border-radius: 50%;
+    z-index: 5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.rock1 {
+    left: 15%;
+    width: 40px;
+    height: 25px;
+}
+
+.rock2 {
+    left: 25%;
+    width: 30px;
+    height: 20px;
+}
+
+.rock3 {
+    right: 20%;
+    width: 35px;
+    height: 22px;
+}
+
+.rock4 {
+    right: 35%;
+    width: 28px;
+    height: 18px;
+}
+
+.rock5 {
+    left: 60%;
+    width: 32px;
+    height: 20px;
+}
+
+/* Conchas decorativas */
+.shell {
+    position: absolute;
+    bottom: 18%;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #ffe4e1 0%, #ffc0cb 50%, #ffb6c1 100%);
+    border-radius: 50%;
+    z-index: 5;
+    animation: shellGlimmer 5s ease-in-out infinite;
+}
+
+.shell1 {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.shell2 {
+    left: 35%;
+    animation-delay: -1s;
+}
+
+.shell3 {
+    left: 50%;
+    animation-delay: -2s;
+}
+
+.shell4 {
+    left: 65%;
+    animation-delay: -3s;
+}
+
+.shell5 {
+    right: 25%;
+    animation-delay: -4s;
+}
+
+.shell6 {
+    right: 40%;
+    animation-delay: -2.5s;
+}
+
+@keyframes shellGlimmer {
+
+    0%,
+    100% {
+        box-shadow: 0 0 5px rgba(255, 182, 193, 0.5);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 15px rgba(255, 182, 193, 0.8);
+        transform: scale(1.1);
+    }
+}
+
+/* Algas marinas */
+.seaweed {
+    position: absolute;
+    bottom: 25%;
+    width: 8px;
+    height: 40px;
+    background: linear-gradient(to top, #006400 0%, #228b22 50%, #32cd32 100%);
+    border-radius: 4px;
+    z-index: 5;
+    animation: seaweedSway 4s ease-in-out infinite;
+}
+
+.seaweed1 {
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.seaweed2 {
+    left: 70%;
+    animation-delay: -1s;
+}
+
+.seaweed3 {
+    right: 15%;
+    animation-delay: -2s;
+}
+
+@keyframes seaweedSway {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
+/* Marco para foto romántica */
+.romantic-photo-frame {
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    width: 200px;
+    height: 150px;
+    z-index: 7;
+    animation: photoFloat 6s ease-in-out infinite;
+}
+
+.photo-frame-border {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 220px;
+    height: 170px;
+    background: linear-gradient(45deg, #ffd700 0%, #ffa500 25%, #ffd700 50%, #ffa500 75%, #ffd700 100%);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+.photo-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 150px;
+    background: linear-gradient(45deg, #e6e6fa, #f0f8ff);
+    border-radius: 10px;
+    background-image: url("/placeholder.svg?height=150&width=200");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.photo-heart {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 24px;
+    color: #ff69b4;
+    background: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+    animation: heartBeat 2s ease-in-out infinite;
+}
+
+.photo-caption {
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Dancing Script", cursive;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ff69b4;
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+}
+
+@keyframes photoFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(1deg);
+    }
+}
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Efectos Frutiger Aero */
+.aero-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 8;
+    pointer-events: none;
+}
+
+.light-orb {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(255, 255, 255, 0.6) 0%,
+            rgba(255, 255, 255, 0.3) 30%,
+            rgba(255, 255, 255, 0.1) 60%,
+            transparent 100%);
+    animation: orbFloat 8s ease-in-out infinite;
+}
+
+.orb1 {
+    top: 25%;
+    left: 20%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+}
+
+.orb2 {
+    top: 40%;
+    right: 30%;
+    width: 40px;
+    height: 40px;
+    animation-delay: -2s;
+}
+
+.orb3 {
+    top: 60%;
+    left: 60%;
+    width: 50px;
+    height: 50px;
+    animation-delay: -4s;
+}
+
+.orb4 {
+    top: 15%;
+    left: 70%;
+    width: 35px;
+    height: 35px;
+    animation-delay: -6s;
+}
+
+.orb5 {
+    top: 80%;
+    right: 20%;
+    width: 45px;
+    height: 45px;
+    animation-delay: -1s;
+}
+
+@keyframes orbFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+.lens-flare {
+    position: absolute;
+    background: linear-gradient(45deg,
+            rgba(255, 255, 255, 0.8) 0%,
+            rgba(255, 229, 92, 0.6) 50%,
+            rgba(255, 255, 255, 0.8) 100%);
+    border-radius: 50%;
+    animation: flareShine 6s ease-in-out infinite;
+}
+
+.flare1 {
+    top: 30%;
+    right: 40%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.flare2 {
+    top: 50%;
+    left: 40%;
+    width: 15px;
+    height: 15px;
+    animation-delay: -2s;
+}
+
+.flare3 {
+    top: 70%;
+    right: 60%;
+    width: 25px;
+    height: 25px;
+    animation-delay: -4s;
+}
+
+@keyframes flareShine {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Objetos ocultos específicos de la playa - CAMUFLADOS */
+.hidden-object {
+    position: absolute;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.1;
+    filter: brightness(0.3) saturate(0.2) blur(1px);
+    z-index: 6;
+    mix-blend-mode: multiply;
+}
+
+/* Posiciones específicas camufladas con el entorno */
+.concha-especial {
+    bottom: 22%;
+    left: 18%;
+    color: #f4e4bc;
+    transform: rotate(15deg);
+}
+
+.mensaje-botella {
+    bottom: 25%;
+    right: 25%;
+    color: #87ceeb;
+    transform: rotate(-10deg);
+}
+
+.anillo-arena {
+    bottom: 20%;
+    left: 45%;
+    color: #ffd700;
+    transform: scale(0.8);
+}
+
+.estrella-mar {
+    bottom: 28%;
+    left: 65%;
+    color: #ffb6c1;
+    transform: rotate(25deg);
+}
+
+.collar-perlas {
+    bottom: 35%;
+    right: 15%;
+    color: #fff8dc;
+    transform: rotate(-20deg);
+}
+
+.caracola-susurros {
+    bottom: 24%;
+    left: 75%;
+    color: #f0e68c;
+    transform: rotate(30deg);
+}
+
+.cristal-mar {
+    bottom: 30%;
+    right: 40%;
+    color: #e0f6ff;
+    transform: rotate(-15deg);
+}
+
+.flor-hibisco {
+    bottom: 45%;
+    left: 8%;
+    color: #ff69b4;
+    transform: rotate(10deg);
+}
+
+.corazon-coral {
+    bottom: 32%;
+    left: 55%;
+    color: #ff6b6b;
+    transform: rotate(-5deg);
+}
+
+/* CORRECCIÓN: Asegurar que los objetos sean siempre clickeables */
+.hidden-object {
+    pointer-events: auto !important;
+}
+
+.hidden-object:hover {
+    pointer-events: auto !important;
+}
+
+/* Corrección específica para después de usar pista */
+.hidden-object.hint-used {
+    pointer-events: auto !important;
+    z-index: 6 !important;
+}
+
+/* Objetos trampa - También camuflados */
+.trampa-piedra {
+    bottom: 21%;
+    right: 50%;
+    color: #808080;
+    transform: rotate(20deg);
+}
+
+.trampa-alga {
+    bottom: 26%;
+    left: 35%;
+    color: #228b22;
+    transform: rotate(-25deg);
+}
+
+.trampa-cangrejo {
+    bottom: 23%;
+    right: 35%;
+    color: #cd853f;
+    transform: rotate(15deg);
+}
+
+/* Efectos hover para objetos reales - SE HACEN COMPLETAMENTE VISIBLES */
+.hidden-object[data-real="true"]:hover {
+    opacity: 1 !important;
+    filter: brightness(1.5) saturate(1.5) drop-shadow(0 0 20px currentColor) blur(0px) !important;
+    transform: scale(1.4) !important;
+    z-index: 100 !important;
+    mix-blend-mode: normal !important;
+    animation: beachObjectReveal 0.5s ease-out;
+}
+
+.hidden-object[data-real="false"]:hover {
+    opacity: 0.7 !important;
+    filter: brightness(1.1) saturate(1.1) drop-shadow(0 0 10px #ff6b6b) blur(0px) !important;
+    transform: scale(1.2) !important;
+    mix-blend-mode: normal !important;
+}
+
+@keyframes beachObjectReveal {
+    0% {
+        opacity: 0.1;
+        filter: brightness(0.3) saturate(0.2) blur(1px);
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        filter: brightness(1.5) saturate(1.5) drop-shadow(0 0 20px currentColor) blur(0px);
+        transform: scale(1.4);
+    }
+}
+
+/* UI del juego con estilo Frutiger Aero */
+.beach-ui {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(255, 182, 193, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.ui-glow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg,
+            rgba(255, 182, 193, 0.3),
+            rgba(255, 229, 92, 0.2),
+            rgba(135, 206, 235, 0.3),
+            rgba(255, 182, 193, 0.3));
+    border-radius: 22px;
+    z-index: -1;
+    animation: uiGlow 4s ease-in-out infinite;
+}
+
+@keyframes uiGlow {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.scene-title {
+    font-size: 1.8rem;
+    color: #ff69b4;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(255, 105, 180, 0.3);
+}
+
+/* Botón de pista con estilo Frutiger Aero */
+.beach-hint {
+    background: linear-gradient(135deg, #ffe55c 0%, #ffd93d 25%, #ffc107 50%, #ff9800 75%, #ff6b35 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hint-glow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, rgba(255, 229, 92, 0.8), rgba(255, 217, 61, 0.6), rgba(255, 193, 7, 0.8));
+    border-radius: 50%;
+    z-index: -1;
+    animation: hintGlow 3s ease-in-out infinite;
+}
+
+@keyframes hintGlow {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* Botón siguiente con animación de brillo */
+.beach-next-btn {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ff69b4, #ffb6c1, #ff1493);
+}
+
+.btn-shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%);
+    animation: shimmer 2s ease-in-out infinite;
+}
+
+.beach-next-btn.active .btn-shimmer {
+    animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Felicitación especial para playa */
+.beach-congrats .congrats-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 3px solid rgba(255, 182, 193, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.sunset-burst {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 229, 92, 0.6) 0%, rgba(255, 182, 193, 0.4) 50%, transparent 100%);
+    border-radius: 50%;
+    animation: sunsetBurst 3s ease-out infinite;
+}
+
+.wave-effect {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(135, 206, 235, 0.3) 25%,
+            rgba(135, 206, 235, 0.5) 50%,
+            rgba(135, 206, 235, 0.3) 75%,
+            transparent 100%);
+    animation: waveEffect 2s ease-in-out infinite;
+}
+
+.sparkle-ocean {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(2px 2px at 20% 30%, #ffd700, transparent),
+        radial-gradient(2px 2px at 40% 70%, #87ceeb, transparent), radial-gradient(1px 1px at 90% 40%, #ffb6c1, transparent),
+        radial-gradient(1px 1px at 60% 10%, #98fb98, transparent);
+    animation: sparkleOcean 4s ease-in-out infinite;
+}
+
+@keyframes sunsetBurst {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes waveEffect {
+
+    0%,
+    100% {
+        transform: translateX(-20px);
+    }
+
+    50% {
+        transform: translateX(20px);
+    }
+}
+
+@keyframes sparkleOcean {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: rotate(180deg);
+        opacity: 1;
+    }
+}
+
+/* Mensaje de objeto trampa para playa */
+.beach-decoy {
+    background: rgba(255, 107, 107, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 107, 107, 0.6);
+}
+
+/* Partículas específicas de playa */
+.beach-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    pointer-events: none;
+}
+
+.beach-bubble {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, rgba(135, 206, 235, 0.4) 50%, transparent 100%);
+    border-radius: 50%;
+    animation: bubbleFloat 5s ease-in-out infinite;
+}
+
+.light-sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #ffd700, transparent);
+    border-radius: 50%;
+    animation: sparkleShine 3s ease-in-out infinite;
+}
+
+@keyframes bubbleFloat {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateY(90vh) scale(1);
+    }
+
+    90% {
+        opacity: 1;
+        transform: translateY(-10vh) scale(1);
+    }
+
+    100% {
+        transform: translateY(-20vh) scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes sparkleShine {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive para playa */
+@media (max-width: 768px) {
+    .sun {
+        width: 80px;
+        height: 80px;
+        top: 20%;
+        right: 20%;
+    }
+
+    .romantic-photo-frame {
+        width: 150px;
+        height: 112px;
+        top: 25%;
+        left: 10%;
+    }
+
+    .photo-frame-border {
+        width: 170px;
+        height: 132px;
+    }
+
+    .photo-placeholder {
+        width: 150px;
+        height: 112px;
+    }
+
+    .palm-tree {
+        transform: scale(0.7);
+    }
+
+    .hidden-object {
+        font-size: 14px;
+    }
+
+    .beach-ui {
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sun {
+        width: 60px;
+        height: 60px;
+    }
+
+    .romantic-photo-frame {
+        width: 120px;
+        height: 90px;
+    }
+
+    .photo-frame-border {
+        width: 140px;
+        height: 110px;
+    }
+
+    .photo-placeholder {
+        width: 120px;
+        height: 90px;
+    }
+
+    .hidden-object {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,751 @@
+/* Estilos para la escena del parque */
+.park-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Cielo y nubes */
+.sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to bottom, #87ceeb 0%, #98d8e8 30%, #b0e0e6 60%, #e0f6ff 100%);
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50px;
+    opacity: 0.8;
+    animation: cloudDrift 25s infinite linear;
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50px;
+}
+
+.cloud1 {
+    width: 80px;
+    height: 30px;
+    top: 15%;
+    left: -80px;
+    animation-duration: 30s;
+}
+
+.cloud1::before {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    left: 15px;
+}
+
+.cloud1::after {
+    width: 50px;
+    height: 30px;
+    top: -10px;
+    right: 15px;
+}
+
+.cloud2 {
+    width: 100px;
+    height: 40px;
+    top: 25%;
+    left: -100px;
+    animation-duration: 35s;
+    animation-delay: -10s;
+}
+
+.cloud2::before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 20px;
+}
+
+.cloud2::after {
+    width: 60px;
+    height: 40px;
+    top: -15px;
+    right: 20px;
+}
+
+.cloud3 {
+    width: 120px;
+    height: 50px;
+    top: 10%;
+    left: -120px;
+    animation-duration: 40s;
+    animation-delay: -20s;
+}
+
+.cloud3::before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 25px;
+}
+
+.cloud3::after {
+    width: 70px;
+    height: 50px;
+    top: -20px;
+    right: 25px;
+}
+
+.cloud4 {
+    width: 90px;
+    height: 35px;
+    top: 35%;
+    left: -90px;
+    animation-duration: 28s;
+    animation-delay: -15s;
+}
+
+.cloud4::before {
+    width: 45px;
+    height: 45px;
+    top: -22px;
+    left: 18px;
+}
+
+.cloud4::after {
+    width: 55px;
+    height: 35px;
+    top: -12px;
+    right: 18px;
+}
+
+@keyframes cloudDrift {
+    0% {
+        transform: translateX(-150px);
+    }
+
+    100% {
+        transform: translateX(calc(100vw + 150px));
+    }
+}
+
+/* Montañas de fondo */
+.mountains {
+    position: absolute;
+    bottom: 35%;
+    left: 0;
+    width: 100%;
+    height: 25%;
+    background: linear-gradient(to right, #9370db 0%, #8a2be2 25%, #9370db 50%, #dda0dd 75%, #9370db 100%);
+    clip-path: polygon(0% 100%, 15% 60%, 25% 80%, 35% 40%, 50% 70%, 65% 30%, 80% 60%, 90% 45%, 100% 80%, 100% 100%);
+    opacity: 0.7;
+}
+
+/* Árboles - Más distribuidos */
+.tree {
+    position: absolute;
+    bottom: 0;
+}
+
+.tree1 {
+    left: 5%;
+    width: 70px;
+    height: 130px;
+    background: linear-gradient(to top, #8b4513 0%, #8b4513 60%, #228b22 60%, #32cd32 100%);
+    border-radius: 35px 35px 0 0;
+    z-index: 3;
+}
+
+.tree1::before {
+    content: "";
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 38px;
+    background: #8b4513;
+    border-radius: 9px;
+}
+
+.tree2 {
+    right: 8%;
+    width: 85px;
+    height: 150px;
+    background: linear-gradient(to top, #8b4513 0%, #8b4513 55%, #228b22 55%, #32cd32 100%);
+    border-radius: 42px 42px 0 0;
+    z-index: 3;
+}
+
+.tree2::before {
+    content: "";
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 42px;
+    background: #8b4513;
+    border-radius: 11px;
+}
+
+.tree3 {
+    left: 70%;
+    width: 60px;
+    height: 110px;
+    background: linear-gradient(to top, #8b4513 0%, #8b4513 65%, #228b22 65%, #32cd32 100%);
+    border-radius: 30px 30px 0 0;
+    z-index: 2;
+}
+
+.tree3::before {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 30px;
+    background: #8b4513;
+    border-radius: 8px;
+}
+
+.tree4 {
+    left: 20%;
+    width: 75px;
+    height: 120px;
+    background: linear-gradient(to top, #8b4513 0%, #8b4513 58%, #228b22 58%, #32cd32 100%);
+    border-radius: 37px 37px 0 0;
+    z-index: 2;
+}
+
+.tree4::before {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 40px;
+    background: #8b4513;
+    border-radius: 10px;
+}
+
+.tree5 {
+    left: 45%;
+    width: 55px;
+    height: 95px;
+    background: linear-gradient(to top, #8b4513 0%, #8b4513 62%, #228b22 62%, #32cd32 100%);
+    border-radius: 27px 27px 0 0;
+    z-index: 2;
+}
+
+.tree5::before {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 25px;
+    background: #8b4513;
+    border-radius: 6px;
+}
+
+.tree6 {
+    right: 35%;
+    width: 65px;
+    height: 105px;
+    background: linear-gradient(to top, #8b4513 0%, #8b4513 60%, #228b22 60%, #32cd32 100%);
+    border-radius: 32px 32px 0 0;
+    z-index: 2;
+}
+
+.tree6::before {
+    content: "";
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 32px;
+    background: #8b4513;
+    border-radius: 8px;
+}
+
+/* Césped */
+.grass {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to bottom, #90ee90 0%, #98fb98 30%, #90ee90 60%, #7cfc00 100%);
+    z-index: 1;
+}
+
+/* Flores decorativas - Más distribuidas */
+.flowers {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    z-index: 2;
+}
+
+.flower-patch {
+    position: absolute;
+    width: 35px;
+    height: 18px;
+    background: radial-gradient(circle, #ffb6c1, #ff69b4, #ffb6c1);
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.patch1 {
+    bottom: 18%;
+    left: 15%;
+    animation: flowerSway 4s ease-in-out infinite;
+}
+
+.patch2 {
+    bottom: 22%;
+    right: 25%;
+    animation: flowerSway 4s ease-in-out infinite -1s;
+}
+
+.patch3 {
+    bottom: 12%;
+    left: 55%;
+    animation: flowerSway 4s ease-in-out infinite -2s;
+}
+
+.patch4 {
+    bottom: 25%;
+    left: 35%;
+    animation: flowerSway 4s ease-in-out infinite -1.5s;
+}
+
+.patch5 {
+    bottom: 15%;
+    right: 45%;
+    animation: flowerSway 4s ease-in-out infinite -0.5s;
+}
+
+.patch6 {
+    bottom: 20%;
+    left: 75%;
+    animation: flowerSway 4s ease-in-out infinite -2.5s;
+}
+
+@keyframes flowerSway {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: scale(1.1) rotate(2deg);
+    }
+}
+
+/* Bancos del parque mejorados - Múltiples con fotos más grandes */
+.park-bench {
+    position: absolute;
+    width: 90px;
+    height: 45px;
+    background: linear-gradient(to bottom, #8b4513 0%, #a0522d 50%, #654321 100%);
+    border-radius: 8px;
+    z-index: 3;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.bench1 {
+    bottom: 28%;
+    right: 15%;
+}
+
+.bench2 {
+    bottom: 25%;
+    left: 30%;
+}
+
+/* Respaldo del banco */
+.park-bench::before {
+    content: "";
+    position: absolute;
+    top: -18px;
+    left: 0;
+    width: 100%;
+    height: 18px;
+    background: linear-gradient(to bottom, #8b4513 0%, #a0522d 50%, #654321 100%);
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Patas del banco */
+.park-bench::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 15%;
+    width: 70%;
+    height: 20px;
+    background: linear-gradient(to bottom, #654321, #8b4513);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Detalles decorativos del banco */
+.park-bench .bench-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(to right, #a0522d, #deb887, #a0522d);
+    border-radius: 2px;
+}
+
+/* Foto en el banco - MÁS GRANDE */
+.bench-photo {
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 50px;
+    background: white;
+    border: 3px solid #8b4513;
+    border-radius: 5px;
+    z-index: 4;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    background-image: url("/placeholder.svg?height=50&width=70");
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+.bench-photo:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+.bench-photo::before {
+    content: "💕";
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: 16px;
+    color: #ff69b4;
+    background: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Marco decorativo adicional */
+.bench-photo::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 1px solid #daa520;
+    border-radius: 3px;
+    z-index: -1;
+}
+
+/* Senderos - Múltiples */
+.path {
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(to bottom, #deb887 0%, #d2b48c 50%, #bc9a6a 100%);
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.path1 {
+    left: 25%;
+    width: 50%;
+    height: 25%;
+    border-radius: 50% 50% 0 0;
+}
+
+.path2 {
+    left: 10%;
+    width: 20%;
+    height: 15%;
+    border-radius: 50% 50% 0 0;
+    transform: rotate(-15deg);
+}
+
+.path3 {
+    right: 10%;
+    width: 25%;
+    height: 18%;
+    border-radius: 50% 50% 0 0;
+    transform: rotate(10deg);
+}
+
+/* Fuente del parque */
+.fountain {
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #b0e0e6, #87ceeb);
+    border-radius: 50%;
+    z-index: 3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.fountain::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #87ceeb, #4682b4);
+    border-radius: 50%;
+}
+
+.fountain::after {
+    content: "💧";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    animation: waterDrop 2s ease-in-out infinite;
+}
+
+@keyframes waterDrop {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Arbustos decorativos */
+.bush {
+    position: absolute;
+    width: 40px;
+    height: 25px;
+    background: radial-gradient(ellipse, #228b22, #32cd32);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.bush1 {
+    bottom: 20%;
+    left: 12%;
+}
+
+.bush2 {
+    bottom: 18%;
+    right: 20%;
+}
+
+.bush3 {
+    bottom: 22%;
+    left: 65%;
+}
+
+.bush4 {
+    bottom: 16%;
+    right: 50%;
+}
+
+/* Objetos ocultos específicos del parque - MEJOR OCULTADOS */
+.hidden-object {
+    position: absolute;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.4;
+    filter: brightness(0.6) saturate(0.5) drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2));
+    z-index: 4;
+}
+
+.flor-rosa {
+    position: absolute;
+    bottom: 35%;
+    left: 50%;
+    color: #ff1493;
+}
+
+.camara-vintage {
+    position: absolute;
+    bottom: 45%;
+    right: 30%;
+    color: #696969;
+}
+
+.carta-amor {
+    position: absolute;
+    bottom: 50%;
+    left: 60%;
+    color: #f5f5dc;
+}
+
+.bufanda-rosa {
+    position: absolute;
+    bottom: 30%;
+    right: 50%;
+    color: #ffb6c1;
+}
+
+.peluche-oso {
+    position: absolute;
+    bottom: 40%;
+    left: 80%;
+    color: #deb887;
+}
+
+.reloj-dorado {
+    position: absolute;
+    bottom: 55%;
+    left: 35%;
+    color: #daa520;
+}
+
+/* Efectos hover para objetos del parque */
+.hidden-object:hover {
+    opacity: 1 !important;
+    filter: brightness(1.3) saturate(1.2) drop-shadow(0 0 15px currentColor) !important;
+    transform: scale(1.2);
+    z-index: 100 !important;
+}
+
+/* UI específica del parque con estilo Frutiger Aero */
+.game-ui {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(144, 238, 144, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.game-ui::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg,
+            rgba(144, 238, 144, 0.3),
+            rgba(152, 251, 152, 0.2),
+            rgba(124, 252, 0, 0.3),
+            rgba(144, 238, 144, 0.3));
+    border-radius: 22px;
+    z-index: -1;
+    animation: parkUIGlow 4s ease-in-out infinite;
+}
+
+@keyframes parkUIGlow {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.scene-title {
+    font-size: 1.8rem;
+    color: #228b22;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(34, 139, 34, 0.3);
+}
+
+/* Botón de pista con estilo Frutiger Aero para parque */
+.hint-button {
+    background: linear-gradient(135deg, #90ee90 0%, #98fb98 25%, #7cfc00 50%, #32cd32 75%, #228b22 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hint-button::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, rgba(144, 238, 144, 0.8), rgba(152, 251, 152, 0.6), rgba(124, 252, 0, 0.8));
+    border-radius: 50%;
+    z-index: -1;
+    animation: parkHintGlow 3s ease-in-out infinite;
+}
+
+@keyframes parkHintGlow {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* Responsive para parque */
+@media (max-width: 768px) {
+
+    .tree1,
+    .tree2,
+    .tree3,
+    .tree4 {
+        width: 40px;
+        height: 80px;
+    }
+
+    .park-bench {
+        width: 70px;
+        height: 35px;
+    }
+
+    .bench-photo {
+        width: 50px;
+        height: 35px;
+    }
+
+    .hidden-object {
+        font-size: 18px;
+    }
+}

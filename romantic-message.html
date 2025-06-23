@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuerdos de Nosotros - Mensaje Romántico</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/buttons.css">
+    <link rel="stylesheet" href="styles/romantic-message.css">
+</head>
+
+<body>
+    <!-- Efectos de fondo -->
+    <div class="background-effects">
+        <div class="glow-circle"></div>
+        <div class="glow-circle"></div>
+        <div class="glow-circle"></div>
+        <div class="glow-circle"></div>
+        <div class="light-rays"></div>
+    </div>
+
+    <!-- Partículas brillantes -->
+    <div class="sparkles" id="sparkles"></div>
+
+    <!-- Corazones flotantes -->
+    <div class="floating-hearts" id="floating-hearts"></div>
+
+    <!-- Contenedor principal -->
+    <div class="message-container">
+        <div class="romantic-message fade-in">
+            <div class="message-decoration"></div>
+            Siempre recordaré todos nuestros primeros momentos juntos
+        </div>
+        <button class="btn btn-primary btn-xl btn-icon fade-in" onclick="showSurpriseModal()">
+            <span class="icon">💖</span>
+            Continuar
+        </button>
+    </div>
+
+    <!-- Modal de sorpresa -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal" onclick="event.stopPropagation()">
+            <div class="modal-particles" id="modalParticles"></div>
+            <div class="surprise-icon">🎉</div>
+            <div class="surprise-message">
+                No solo son dos meses… es el inicio de todo
+            </div>
+            <button class="btn btn-primary btn-icon" onclick="continueToFinal()">
+                <span class="icon">💕</span>
+                Continuar
+            </button>
+        </div>
+    </div>
+
+    <script src="js/effects.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/modal.js"></script>
+    <script>
+        function showSurpriseModal() {
+            showModal();
+        }
+
+        function continueToFinal() {
+            closeModal();
+            setTimeout(() => {
+                navigateTo('final-screen.html');
+            }, 500);
+        }
+
+        // Inicializar efectos
+        document.addEventListener('DOMContentLoaded', () => {
+            createSparkles();
+            createFloatingHearts();
+        });
+    </script>
+</body>
+
+</html>

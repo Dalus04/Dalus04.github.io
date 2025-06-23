@@ -1,0 +1,276 @@
+/* Estilos específicos para pantalla final */
+.clouds-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.glow-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.3) 0%, rgba(255, 182, 193, 0.1) 50%, transparent 100%);
+    animation: glowPulse 6s infinite ease-in-out;
+}
+
+.glow-orb:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.glow-orb:nth-child(2) {
+    width: 150px;
+    height: 150px;
+    top: 20%;
+    right: 15%;
+    animation-delay: -2s;
+}
+
+.glow-orb:nth-child(3) {
+    width: 180px;
+    height: 180px;
+    bottom: 15%;
+    right: 20%;
+    animation-delay: -4s;
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.2);
+    }
+}
+
+.floating-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.falling-petals {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.petal {
+    position: absolute;
+    color: rgba(255, 182, 193, 0.8);
+    font-size: 20px;
+    animation: petalFall 12s infinite linear;
+}
+
+@keyframes petalFall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.final-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+.flower-bouquet {
+    position: relative;
+    margin-bottom: 3rem;
+    animation: bouquetEntrance 3s ease-out;
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes bouquetEntrance {
+    0% {
+        transform: translateY(100vh) rotate(-10deg) scale(0.5);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translateY(-20px) rotate(5deg) scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+.bouquet {
+    font-size: 8rem;
+    position: relative;
+    animation: bouquetFloat 4s ease-in-out infinite;
+}
+
+@keyframes bouquetFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+}
+
+.bouquet-sparkles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    pointer-events: none;
+}
+
+.love-message {
+    font-family: "Great Vibes", cursive;
+    font-size: 3.2rem;
+    font-weight: 400;
+    color: #ff69b4;
+    text-shadow: 0 0 20px rgba(255, 105, 180, 0.6), 0 0 40px rgba(255, 105, 180, 0.4), 2px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    max-width: 800px;
+    line-height: 1.3;
+    background: linear-gradient(45deg, #ff69b4, #ffb6c1, #ff1493, #da70d6, #ff69b4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: messageGlow 4s ease-in-out infinite, gradientShift 8s ease-in-out infinite;
+    opacity: 0;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes messageGlow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 20px rgba(255, 105, 180, 0.6), 0 0 40px rgba(255, 105, 180, 0.4);
+    }
+
+    50% {
+        text-shadow: 0 0 30px rgba(255, 105, 180, 0.9), 0 0 50px rgba(255, 105, 180, 0.6);
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.message-entrance {
+    animation: messageEntrance 2s ease-out 3s both;
+}
+
+@keyframes messageEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.final-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 2rem;
+    opacity: 0;
+    animation: buttonAppear 1s ease-out 5s both;
+}
+
+@keyframes buttonAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .bouquet {
+        font-size: 6rem;
+    }
+
+    .love-message {
+        font-size: 2.5rem;
+    }
+
+    .final-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
