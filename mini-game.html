@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuerdos de Nosotros</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/buttons.css">
+</head>
+
+<body>
+    <!-- Nubes -->
+    <div class="clouds">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+    </div>
+
+    <!-- Brillos -->
+    <div class="sparkles" id="sparkles"></div>
+
+    <!-- Corazones flotantes -->
+    <div class="hearts" id="hearts"></div>
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <h1 class="title">Recuerdos</h1>
+        <p class="subtitle">Un viaje por momentos especiales</p>
+        <button class="btn btn-primary btn-xl btn-icon" onclick="startGame()">
+            <span class="icon">✨</span>
+            Comenzar Aventura
+        </button>
+    </div>
+
+    <script src="js/effects.js"></script>
+    <script src="js/navigation.js"></script>
+    <script>
+        function startGame() {
+            navigateTo('park-scene.html');
+        }
+
+        // Inicializar efectos
+        document.addEventListener('DOMContentLoaded', () => {
+            createSparkles();
+            createFloatingHearts();
+        });
+    </script>
+</body>
+
+</html>
