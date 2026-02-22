@@ -5,13 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Historia de Amor</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="styles/carta.css">
+    <style>
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid rgba(var(--color-primary-light), 0.3);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            font-size: 1.4rem;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.25);
+        }
+    </style>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
+    <button class="back-btn" onclick="navigateTo('index.html')" title="Volver al inicio"
+        aria-label="Volver al inicio">🏠</button>
     <div class="album-container">
         <div class="paper-clip top-left"></div>
         <div class="coffee-stain bottom-right"></div>
@@ -50,7 +80,7 @@
         <div class="photo-section">
             <div class="tiktok-frame">
                 <div class="tiktok-content">
-                    <img src="Fotos/1.jpg" alt="El live donde nos conocimos">
+                    <img loading="lazy" src="assets/fotos/1.jpg" alt="El live donde nos conocimos">
                 </div>
                 <div class="tiktok-caption">El live donde nos conocimos</div>
                 <div class="photo-date" style="color: #fff;">Febrero, 2025</div>
@@ -58,7 +88,7 @@
 
             <div class="tiktok-frame">
                 <div class="tiktok-content">
-                    <img src="Fotos/2.jpg" alt="Cuando me hiciste reír con tus comentarios">
+                    <img loading="lazy" src="assets/fotos/2.jpg" alt="Cuando me hiciste reír con tus comentarios">
                 </div>
                 <div class="tiktok-caption">Cuando me hiciste reír con tus comentarios</div>
                 <div class="photo-date" style="color: #fff;">Febrero, 2025</div>
@@ -88,7 +118,7 @@
         <div class="photo-section">
             <div class="roblox-frame">
                 <div class="roblox-content">
-                    <img src="Fotos/3.jpg" alt="Construyendo nuestro mundo juntos">
+                    <img loading="lazy" src="assets/fotos/3.jpg" alt="Construyendo nuestro mundo juntos">
                 </div>
                 <div class="roblox-caption">Construyendo nuestro mundo juntos</div>
                 <div class="photo-date">Marzo, 2025</div>
@@ -96,7 +126,7 @@
 
             <div class="roblox-frame">
                 <div class="roblox-content">
-                    <img src="Fotos/4.jpg" alt="Jugando Roblox solos">
+                    <img loading="lazy" src="assets/fotos/4.jpg" alt="Jugando Roblox solos">
                 </div>
                 <div class="roblox-caption">Cuando empezamos a jugar solos</div>
                 <div class="photo-date">Marzo, 2025</div>
@@ -126,14 +156,14 @@
         <div class="photo-section">
             <div class="photo-frame" style="--rotation: -2deg;">
                 <div class="photo-decoration tape-top"></div>
-                <img src="Fotos/5.jpg" alt="Dibujos de buenos días en Noteit">
+                <img loading="lazy" src="assets/fotos/5.jpg" alt="Dibujos de buenos días en Noteit">
                 <div class="photo-caption">Los buenos días que dibujaste para mi</div>
                 <div class="photo-date">Abril, 2025</div>
             </div>
 
             <div class="photo-frame" style="--rotation: 3deg;">
                 <div class="photo-decoration tape-top"></div>
-                <img src="Fotos/6.jpg" alt="Dibujos personalizados">
+                <img loading="lazy" src="assets/fotos/6.jpg" alt="Dibujos personalizados">
                 <div class="photo-caption">Dibujes hechos con amor</div>
                 <div class="photo-date">Abril, 2025</div>
             </div>
@@ -142,14 +172,14 @@
         <div class="photo-section">
             <div class="photo-frame" style="--rotation: 1deg;">
                 <div class="photo-decoration tape-top"></div>
-                <img src="Fotos/7.jpg" alt="Dibujo especial en Noteit">
+                <img loading="lazy" src="assets/fotos/7.jpg" alt="Dibujo especial en Noteit">
                 <div class="photo-caption">Horas dibujando para que fuera perfecto</div>
                 <div class="photo-date">Abril, 2025</div>
             </div>
 
             <div class="photo-frame" style="--rotation: -1deg;">
                 <div class="photo-decoration tape-top"></div>
-                <img src="Fotos/8.jpg" alt="Conversación con dibujos">
+                <img loading="lazy" src="assets/fotos/8.jpg" alt="Conversación con dibujos">
                 <div class="photo-caption">Nuestras conversaciones ilustradas</div>
                 <div class="photo-date">Abril, 2025</div>
             </div>
@@ -173,14 +203,14 @@
         <div class="photo-section">
             <div class="photo-frame" style="--rotation: -2deg;">
                 <div class="photo-decoration tape-top"></div>
-                <img src="Fotos/9.jpg" alt="Torta del Manchester City">
+                <img loading="lazy" src="assets/fotos/9.jpg" alt="Torta del Manchester City">
                 <div class="photo-caption">La torta de mi equipo favorito que me regalaste</div>
                 <div class="photo-date">Mi cumpleaños, 2025</div>
             </div>
 
             <div class="photo-frame" style="--rotation: 2deg;">
                 <div class="photo-decoration tape-top"></div>
-                <img src="Fotos/10.jpg" alt="Mensaje especial de cumpleaños">
+                <img loading="lazy" src="assets/fotos/10.jpg" alt="Mensaje especial de cumpleaños">
                 <div class="photo-caption">El mensaje que conservaré toda la vida</div>
                 <div class="photo-date">Mi cumpleaños, 2025</div>
             </div>
@@ -206,14 +236,14 @@
         <div class="photo-section">
             <div class="photo-frame" style="--rotation: -3deg;">
                 <div class="photo-decoration tape-top"></div>
-                <img src="Fotos/11.jpg" alt="Primeros encuentros">
+                <img loading="lazy" src="assets/fotos/11.jpg" alt="Primeros encuentros">
                 <div class="photo-caption">Nuestros primeros encuentros</div>
                 <div class="photo-date">Abril, 2025</div>
             </div>
 
             <div class="photo-frame" style="--rotation: 2deg;">
                 <div class="photo-decoration tape-top"></div>
-                <img src="Fotos/12.jpg" alt="El peluche que te regalé">
+                <img loading="lazy" src="assets/fotos/12.jpg" alt="El peluche que te regalé">
                 <div class="photo-caption">El peluche que escondí para ti</div>
                 <div class="photo-date">17 de Mayo, 2025</div>
             </div>
@@ -222,7 +252,7 @@
         <div class="photo-section">
             <div class="photo-frame" style="--rotation: 1deg;">
                 <div class="photo-decoration tape-top"></div>
-                <img src="Fotos/19.jpg" alt="Riéndonos con filtros en videollamada">
+                <img loading="lazy" src="assets/fotos/19.jpg" alt="Riéndonos con filtros en videollamada">
                 <div class="photo-caption">Riéndonos con filtros en nuestras videollamadas</div>
                 <div class="photo-date">Abril, 2025</div>
             </div>
@@ -231,14 +261,14 @@
         <div class="photo-section">
             <div class="photo-frame" style="--rotation: 2deg;">
                 <div class="photo-decoration tape-top"></div>
-                <img src="Fotos/13.jpg" alt="Nuestra dia juntos">
+                <img loading="lazy" src="assets/fotos/13.jpg" alt="Nuestra dia juntos">
                 <div class="photo-caption">Nuestro día juntos</div>
                 <div class="photo-date">17 de Mayo, 2025</div>
             </div>
 
             <div class="photo-frame" style="--rotation: -2deg;">
                 <div class="photo-decoration tape-top"></div>
-                <img src="Fotos/14.jpg" alt="Momentos especiales">
+                <img loading="lazy" src="assets/fotos/14.jpg" alt="Momentos especiales">
                 <div class="photo-caption">Momentos que atesoraré siempre</div>
                 <div class="photo-date">Abril, 2025</div>
             </div>
@@ -260,7 +290,7 @@
             <div class="video-frame" style="--rotation: -1deg;">
                 <div class="photo-decoration tape-top"></div>
                 <video controls>
-                    <source src="Fotos/20.mp4" type="video/mp4">
+                    <source src="assets/fotos/20.mp4" type="video/mp4">
                     Tu navegador no soporta el elemento de video.
                 </video>
                 <div class="video-caption">Grabando recuerdos bajo las estrellas</div>
@@ -271,14 +301,14 @@
         <div class="photo-section">
             <div class="photo-frame" style="--rotation: 3deg;">
                 <div class="photo-decoration tape-top"></div>
-                <img src="Fotos/15.jpg" alt="Nuestro paseo">
+                <img loading="lazy" src="assets/fotos/15.jpg" alt="Nuestro paseo">
                 <div class="photo-caption">Recorriendo la ciudad juntos</div>
                 <div class="photo-date">18 de Mayo, 2025</div>
             </div>
 
             <div class="photo-frame" style="--rotation: -2deg;">
                 <div class="photo-decoration tape-top"></div>
-                <img src="Fotos/16.jpg" alt="En la tienda">
+                <img loading="lazy" src="assets/fotos/16.jpg" alt="En la tienda">
                 <div class="photo-caption">Nuestra visita a la tienda</div>
                 <div class="photo-date">18 de Mayo, 2025</div>
             </div>
@@ -305,14 +335,14 @@
         <div class="photo-section">
             <div class="photo-frame" style="--rotation: -1deg;">
                 <div class="photo-decoration tape-top"></div>
-                <img src="Fotos/17.jpg" alt="Un último beso antes de partir">
+                <img loading="lazy" src="assets/fotos/17.jpg" alt="Un último beso antes de partir">
                 <div class="photo-caption">Un último beso antes de partir</div>
                 <div class="photo-date">19 de Mayo, 2025</div>
             </div>
 
             <div class="photo-frame" style="--rotation: 1deg;">
                 <div class="photo-decoration tape-top"></div>
-                <img src="Fotos/18.jpg" alt="Promesa de volver">
+                <img loading="lazy" src="assets/fotos/18.jpg" alt="Promesa de volver">
                 <div class="photo-caption">Con la promesa de volver a vernos pronto</div>
                 <div class="photo-date">19 de Mayo, 2025</div>
             </div>
@@ -397,7 +427,8 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/carta.js"></script>
 </body>
 
 </html>

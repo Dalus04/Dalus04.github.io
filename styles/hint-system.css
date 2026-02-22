@@ -51,7 +51,7 @@
 }
 
 .hint-text {
-    font-family: "Dancing Script", cursive;
+    font-family: var(--font-main);
     font-size: 0.9rem;
     font-weight: 600;
     color: white;

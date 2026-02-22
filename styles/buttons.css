@@ -1,7 +1,7 @@
 /* === SISTEMA DE BOTONES GLOBALES === */
 
 .btn {
-    font-family: "Dancing Script", cursive;
+    font-family: var(--font-main);
     font-weight: 600;
     font-size: 1.1rem;
     padding: 12px 28px;
@@ -10,7 +10,7 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: var(--transition-smooth);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -61,15 +61,15 @@
 
 /* Variantes de botones */
 .btn-primary {
-    background: linear-gradient(135deg, #ff69b4, #ffb6c1, #ff1493);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light), var(--color-primary-deep));
     color: white;
-    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3), 0 4px 15px rgba(255, 105, 180, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 25px var(--glow-primary), 0 4px 15px var(--glow-primary-soft), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.4), 0 8px 25px rgba(255, 105, 180, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    background: linear-gradient(135deg, #ff1493, #ff69b4, #ffb6c1);
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.4), 0 8px 25px var(--glow-primary), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, var(--color-primary-deep), var(--color-primary), var(--color-primary-light));
     filter: brightness(1.1);
 }
 
@@ -101,8 +101,8 @@
 
 .btn-ghost {
     background: rgba(255, 255, 255, 0.2);
-    color: #ff69b4;
-    border: 2px solid rgba(255, 105, 180, 0.3);
+    color: var(--color-primary);
+    border: 2px solid var(--glow-primary);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
 }
@@ -110,9 +110,9 @@
 .btn-ghost:hover {
     transform: translateY(-3px) scale(1.05);
     background: rgba(255, 105, 180, 0.1);
-    border-color: rgba(255, 105, 180, 0.5);
-    color: #ff1493;
-    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.2), 0 8px 25px rgba(255, 105, 180, 0.1);
+    border-color: var(--glow-primary-strong);
+    color: var(--color-primary-deep);
+    box-shadow: 0 15px 40px var(--glow-primary-soft), 0 8px 25px rgba(255, 105, 180, 0.1);
 }
 
 /* Tamaños de botones */

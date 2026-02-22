@@ -7,31 +7,7 @@ let hintUsed = false
 let hintCooldown = false
 let gameIsPaused = false
 
-const romanticMessages = {
-    // Parque (3 objetos)
-    flor: "🌹 Esta rosa me recuerda a tu belleza, siempre floreciendo en mi corazón 💕",
-    camara: "📷 Nuestra primera foto juntos, en cada momento supe que eres especial ✨",
-    carta: "💌 Tu primera mensaje de amor, aún la guardo como mi tesoro más preciado 💖",
 
-    // Habitación (6 objetos)
-    ticket: "🎫 Nuestra primera cita en el cine... se viene pronto 🎬💕",
-    collar: "📿 Un corazón cerca del mío, como tú, sin necesidad de palabras ✨",
-    nota: "📝 Las notitas nos escribíamos, pequeños signo de 'amor' escondidos 💌",
-    perfume: "🌸 Tu perfume, que aún puedo sentir en mis sueños más dulces 🌙",
-    taza: "☕ Nuestras mañanas compartidas... una taza, dos corazones despiertos ☀️",
-    libro: "📖 Las páginas aún guardan versos que me recuerdan a ti... cada línea, un latido 📚💕",
-
-    // Playa (9 objetos)
-    concha: "🐚 Esta concha guarda el eco de nuestras risas, infinitas como las olas 🌊💕",
-    mensaje: "💌 Un ‘te amo’ al mar... y lo devolvió con una botella de esperanza 🌅✨",
-    anillo: "💍 Este anillo enterrado, como un pequeño secreto de lo eterno que quiero contigo 💖🏖️",
-    estrella: "⭐ Esta estrella de mar nos traerá suerte, como el día que te conocí 🌟💫",
-    perlas: "📿 Perlas del océano, cada una un momento perfecto contigo 🌊💎",
-    caracola: "🐚 Caracola para susurrar 'te amo'... y que el mar lo guarde para siempre 🌊💕",
-    cristal: "💎 Cristal pulido por las olas, como nuestro amor, más hermoso con el tiempo ✨🌊",
-    hibisco: "🌺 Esta flor florece solo en lugares mágicos, como tú en mi vida 🌅💖",
-    coral: "❤️ Coral en forma de corazón, la naturaleza sabía de nuestro amor 🌊💕",
-}
 
 // Elementos del DOM
 let hiddenObjects, realObjects, decoyObjects, foundCountElement, nextButton, congratulationsElement, objectIcons
@@ -74,7 +50,7 @@ function playSound(type) {
                 break
         }
     } catch (error) {
-        console.log("Audio no disponible")
+        // Audio no disponible en este entorno
     }
 }
 
@@ -95,7 +71,7 @@ function resumeGame() {
 
 // Inicializar escena del juego
 function initGameScene(config) {
-    console.log("Inicializando escena:", config.sceneName)
+    // Inicializar escena
 
     totalObjects = config.totalObjects
     sceneName = config.sceneName
@@ -110,17 +86,37 @@ function initGameScene(config) {
     objectIcons = document.querySelectorAll(".object-icon")
 
     if (!hiddenObjects.length) {
-        console.error("No se encontraron objetos ocultos")
         return
     }
 
     setupObjectListeners()
 
+    // Restaurar progreso de sessionStorage
+    const saved = sessionStorage.getItem(`found_${sceneName}`)
+    if (saved) {
+        try {
+            const savedObjects = JSON.parse(saved)
+            savedObjects.forEach(objId => {
+                const el = document.querySelector(`.hidden-object[data-object="${objId}"]`)
+                if (el) {
+                    foundObjects.add(objId)
+                    el.classList.add("found")
+                    el.style.pointerEvents = "none"
+                    const icon = document.querySelector(`.object-icon[data-icon="${objId}"]`)
+                    if (icon) icon.classList.add("found")
+                }
+            })
+            if (foundObjects.size === totalObjects && nextButton) {
+                nextButton.classList.add("active")
+            }
+        } catch (e) { console.error("Error restaurando sessionStorage", e) }
+    }
+
     updateFoundCount()
 
     setupSubtleHints()
 
-    loadGameStyles()
+
 }
 
 // Listeners de objetos
@@ -213,6 +209,10 @@ function handleObjectClick(event) {
     if (!foundObjects.has(objectType)) {
         foundObjects.add(objectType)
         object.classList.add("found")
+        object.style.pointerEvents = "none"
+
+        // Guardar progreso en sessionStorage
+        sessionStorage.setItem(`found_${sceneName}`, JSON.stringify([...foundObjects]))
 
         pauseGame()
 
@@ -728,139 +728,8 @@ function createCelebration() {
 }
 
 // Cargar estilos del juego
-function loadGameStyles() {
-    const additionalStyles = document.createElement("style")
-    additionalStyles.textContent = `
-    @keyframes subtleHint {
-      0%, 100% { 
-        filter: brightness(1) saturate(1);
-        transform: scale(1);
-      }
-      50% { 
-        filter: brightness(1.3) saturate(1.2) drop-shadow(0 0 8px currentColor);
-        transform: scale(1.05);
-      }
-    }
-    
-    @keyframes errorShake {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-5px); }
-      75% { transform: translateX(5px); }
-    }
-    
-    @keyframes waveExpand {
-      0% { width: 0px; height: 0px; opacity: 1; }
-      100% { width: 120px; height: 120px; opacity: 0; }
-    }
-    
-    @keyframes slideInRight {
-      from { transform: translateX(100%); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-    
-    @keyframes slideOutRight {
-      from { transform: translateX(0); opacity: 1; }
-      to { transform: translateX(100%); opacity: 0; }
-    }
-    
-    @keyframes fadeOut {
-      from { opacity: 1; }
-      to { opacity: 0; }
-    }
-    
-    @keyframes romanticMessageAppear {
-      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-      100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    }
-    
-    @keyframes romanticMessageDisappear {
-      0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-      100% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
-    }
-    
-    @keyframes sparkleRotate {
-      0%, 100% { transform: rotate(0deg) scale(1); }
-      50% { transform: rotate(180deg) scale(1.2); }
-    }
-    
-    .hint-highlight {
-      animation: hintFlash 0.5s ease-in-out infinite !important;
-      z-index: 999 !important;
-      position: relative !important;
-    }
-    
-    @keyframes hintFlash {
-      0%, 100% {
-        opacity: 1 !important;
-        filter: brightness(3) saturate(2) drop-shadow(0 0 25px #ffd700) !important;
-        transform: scale(1.3) !important;
-        box-shadow: 0 0 25px #ffd700, 0 0 50px #ffd700 !important;
-      }
-      50% {
-        opacity: 1 !important;
-        filter: brightness(4) saturate(2.5) drop-shadow(0 0 40px #ffd700) !important;
-        transform: scale(1.6) !important;
-        box-shadow: 0 0 40px #ffd700, 0 0 80px #ffd700 !important;
-      }
-    }
-    
-    .hidden-object.found {
-      opacity: 1 !important;
-      filter: brightness(1.5) saturate(1.3) drop-shadow(0 0 20px #FFD700) !important;
-      transform: scale(1.2) !important;
-      z-index: 50 !important;
-      animation: foundPulse 2s ease-in-out infinite;
-    }
-    
-    @keyframes foundPulse {
-      0%, 100% { filter: brightness(1.5) saturate(1.3) drop-shadow(0 0 20px #FFD700); }
-      50% { filter: brightness(1.8) saturate(1.5) drop-shadow(0 0 30px #FFD700); }
-    }
-    
-    .object-icon.found {
-      filter: brightness(1.2) drop-shadow(0 0 10px #FFD700) !important;
-      animation: iconFound 1s ease-out;
-    }
-    
-    @keyframes iconFound {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.5) rotate(180deg); }
-      100% { transform: scale(1) rotate(360deg); }
-    }
-    
-    #next-button {
-      opacity: 0.3;
-      pointer-events: none;
-      transition: all 0.5s ease;
-    }
-    
-    #next-button.active {
-      opacity: 1;
-      pointer-events: all;
-      animation: nextButtonReady 2s ease-in-out infinite;
-    }
-    
-    @keyframes nextButtonReady {
-      0%, 100% { box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3); }
-      50% { box-shadow: 0 12px 35px rgba(255, 105, 180, 0.6); }
-    }
-    
-    .congratulations {
-      opacity: 0;
-      visibility: hidden;
-      transform: scale(0.8);
-      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    
-    .congratulations.show {
-      opacity: 1;
-      visibility: visible;
-      transform: scale(1);
-    }
-  `
-    document.head.appendChild(additionalStyles)
-}
+
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM cargado, esperando configuración de escena...")
+    // DOM listo, esperando configuración de escena desde el HTML
 })

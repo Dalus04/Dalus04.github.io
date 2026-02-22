@@ -13,6 +13,9 @@
 </head>
 
 <body>
+    <!-- Botón volver al inicio -->
+    <button class="btn-back-home" onclick="navigateTo('index.html')" title="Volver al inicio"
+        aria-label="Volver al inicio">🏠</button>
     <!-- Nubes -->
     <div class="clouds">
         <div class="cloud cloud1"></div>
@@ -49,6 +52,33 @@
             createFloatingHearts();
         });
     </script>
+    <style>
+        .btn-back-home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .btn-back-home:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.25);
+        }
+    </style>
 </body>
 
 </html>

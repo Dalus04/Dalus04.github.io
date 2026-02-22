@@ -2,17 +2,11 @@
 
 /* --- Fondo y body --- */
 body {
-    font-family: 'Dancing Script', cursive;
+    font-family: var(--font-main);
     height: 100vh;
     overflow: hidden;
     position: relative;
-    background: linear-gradient(135deg,
-            #E6F3FF 0%,
-            #CCE7FF 20%,
-            #FFE6F0 40%,
-            #F0E6FF 60%,
-            #E6F0FF 80%,
-            #FFE6F0 100%);
+    background: var(--bg-gradient);
 }
 
 /* --- Nubes --- */
