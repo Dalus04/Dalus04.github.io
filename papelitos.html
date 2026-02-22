@@ -1310,8 +1310,9 @@
 
         .timeline-track {
             display: flex;
-            gap: 0;
-            min-width: max-content;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 0;
             position: relative;
             padding: 20px 10px;
         }
@@ -1320,9 +1321,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-width: 160px;
+            width: 160px;
+            max-width: 160px;
             position: relative;
-            padding: 0 15px;
+            padding: 0 10px;
             animation: timelineSlideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
             animation-delay: var(--timeline-delay, 0s);
             opacity: 0;
@@ -1373,6 +1375,11 @@
             right: 50%;
         }
 
+        /* Hide connecting lines at row edges when wrapping */
+        .timeline-item {
+            box-sizing: border-box;
+        }
+
         .timeline-dot {
             width: 28px;
             height: 28px;
@@ -1421,11 +1428,14 @@
 
         .timeline-label {
             font-family: 'Playfair Display', Georgia, serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-primary);
             text-align: center;
-            line-height: 1.4;
+            line-height: 1.5;
             font-weight: 500;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
             animation: fadeInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
             animation-delay: var(--timeline-delay, 0s);
             opacity: 0;
@@ -1951,7 +1961,8 @@
             }
 
             .timeline-item {
-                min-width: 130px;
+                width: 130px;
+                max-width: 130px;
             }
 
             .color-option {
@@ -2049,14 +2060,6 @@
 
                     <button class="btn btn-primary" id="searchBtn">Buscar Papelito</button>
                     <button class="btn btn-secondary" id="surpriseBtn">Sorpresa!</button>
-                </div>
-
-                <!-- Note Display (Flip Card) -->
-                <div class="flip-card" id="flipCard">
-                    <div class="flip-card-inner" id="flipCardInner">
-                        
-                        <div class="flip-card-back" id="flipCardBack"></div>
-                    </div>
                 </div>
             </div>
 
