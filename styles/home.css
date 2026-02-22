@@ -1,0 +1,462 @@
+/* === PÁGINA DE INICIO: styles/home.css === */
+
+/* --- Fondo y body --- */
+body {
+    font-family: "Dancing Script", cursive;
+    height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #e6f3ff 0%, #cce7ff 25%, #ffe6f0 50%, #f0e6ff 75%, #e6f0ff 100%);
+    transition: opacity 0.8s ease;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+/* --- Nubes flotantes --- */
+.clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    opacity: 0.7;
+    animation: float 20s infinite linear;
+}
+
+.cloud:before,
+.cloud:after {
+    content: "";
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+}
+
+.cloud1 {
+    width: 100px;
+    height: 40px;
+    top: 10%;
+    left: -100px;
+    animation-duration: 25s;
+}
+
+.cloud1:before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 10px;
+}
+
+.cloud1:after {
+    width: 60px;
+    height: 40px;
+    top: -15px;
+    right: 10px;
+}
+
+.cloud2 {
+    width: 80px;
+    height: 30px;
+    top: 30%;
+    left: -80px;
+    animation-duration: 30s;
+    animation-delay: -10s;
+}
+
+.cloud2:before {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    left: 15px;
+}
+
+.cloud2:after {
+    width: 50px;
+    height: 30px;
+    top: -10px;
+    right: 15px;
+}
+
+.cloud3 {
+    width: 120px;
+    height: 50px;
+    top: 70%;
+    left: -120px;
+    animation-duration: 35s;
+    animation-delay: -20s;
+}
+
+.cloud3:before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 20px;
+}
+
+.cloud3:after {
+    width: 70px;
+    height: 50px;
+    top: -20px;
+    right: 20px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateX(-100px);
+    }
+    100% {
+        transform: translateX(calc(100vw + 100px));
+    }
+}
+
+/* --- Efectos de partículas --- */
+.sparkles,
+.hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #ffb6c1, #ffc0cb, transparent);
+    border-radius: 50%;
+    animation: sparkle 3s infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.heart {
+    position: absolute;
+    color: rgba(255, 182, 193, 0.6);
+    font-size: 20px;
+    animation: heartFloat 8s infinite linear;
+}
+
+@keyframes heartFloat {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* --- Contenedor principal --- */
+.container {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* --- Header --- */
+.header {
+    margin-bottom: 3rem;
+    animation: fadeInDown 1.5s ease-out;
+}
+
+.main-title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #ff69b4;
+    margin-bottom: 1rem;
+    animation: glow 2s ease-in-out infinite alternate;
+    background: linear-gradient(45deg, #ff69b4, #ffb6c1, #ff1493);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(255, 105, 180, 0.5), 0 0 20px rgba(255, 105, 180, 0.3), 0 0 30px rgba(255, 105, 180, 0.2);
+    }
+    to {
+        text-shadow: 0 0 15px rgba(255, 105, 180, 0.8), 0 0 25px rgba(255, 105, 180, 0.5), 0 0 35px rgba(255, 105, 180, 0.3);
+    }
+}
+
+.main-subtitle {
+    font-size: 1.8rem;
+    color: #ff69b4;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(255, 105, 180, 0.3);
+    opacity: 0.9;
+}
+
+.heart-divider {
+    font-size: 2rem;
+    animation: heartBeat 2s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* --- Tarjetas de opciones --- */
+.options-container {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.option-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    padding: 2.5rem 2rem;
+    width: 350px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.option-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.option-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 25px 50px rgba(255, 105, 180, 0.3);
+    border-color: rgba(255, 105, 180, 0.5);
+}
+
+.card-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.card-title {
+    font-size: 2.2rem;
+    color: #ff69b4;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(255, 105, 180, 0.2);
+}
+
+.card-description {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.card-decoration {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.decoration-heart {
+    font-size: 1.5rem;
+    animation: decorationFloat 2s ease-in-out infinite;
+}
+
+.decoration-heart:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.decoration-heart:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes decorationFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.card-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+    transition: all 0.3s ease;
+}
+
+.option-card:hover .card-button {
+    background: linear-gradient(45deg, #ff1493, #ff69b4);
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.5);
+    transform: scale(1.05);
+}
+
+/* --- Mensaje romántico --- */
+.romantic-message {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    max-width: 600px;
+    animation: fadeInUp 2s ease-out;
+}
+
+.romantic-message p {
+    font-size: 1.6rem;
+    color: #ff69b4;
+    font-style: italic;
+    margin-bottom: 1rem;
+    text-shadow: 0 1px 2px rgba(255, 105, 180, 0.2);
+}
+
+.message-signature {
+    font-size: 1.3rem;
+    color: #666;
+    font-weight: 600;
+}
+
+/* --- Animaciones de entrada --- */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 3rem;
+    }
+
+    .main-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .options-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .option-card {
+        width: 100%;
+        max-width: 350px;
+        padding: 2rem 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.8rem;
+    }
+
+    .card-description {
+        font-size: 1.1rem;
+    }
+
+    .romantic-message {
+        margin: 0 1rem;
+        padding: 1.5rem;
+    }
+
+    .romantic-message p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .card-icon {
+        font-size: 3rem;
+    }
+
+    .card-title {
+        font-size: 1.6rem;
+    }
+}

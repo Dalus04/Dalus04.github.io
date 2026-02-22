@@ -1,64 +1,89 @@
-// Partículas brillantes
+// ============================================================
+// effects.js — Efectos visuales globales del proyecto
+// ============================================================
+
+// --- Partículas brillantes ---
 function createSparkles() {
     const sparklesContainer = document.getElementById("sparkles")
     if (!sparklesContainer) return
 
-    for (let i = 0; i < 20; i++) {
+    const createSparkle = () => {
         const sparkle = document.createElement("div")
         sparkle.className = "sparkle"
         sparkle.style.left = Math.random() * 100 + "%"
         sparkle.style.top = Math.random() * 100 + "%"
         sparkle.style.animationDelay = Math.random() * 3 + "s"
         sparklesContainer.appendChild(sparkle)
+
+        setTimeout(() => {
+            if (sparkle.parentNode) sparkle.parentNode.removeChild(sparkle)
+        }, 3000)
     }
+
+    // Crear brillos iniciales escalonados
+    for (let i = 0; i < 15; i++) {
+        setTimeout(createSparkle, i * 200)
+    }
+
+    // Continuar creando brillos periódicamente
+    setInterval(createSparkle, 400)
 }
 
-// Corazones flotantes
+// --- Corazones flotantes ---
 function createFloatingHearts() {
     const heartsContainer = document.getElementById("hearts") || document.getElementById("floating-hearts")
     if (!heartsContainer) return
 
-    setInterval(() => {
+    const heartEmojis = ["💖", "💕", "💗", "💓", "💝", "💘"]
+
+    const createHeart = () => {
         const heart = document.createElement("div")
         heart.className = "heart"
-        heart.innerHTML = ["💕", "💖", "💗", "💝", "💘"][Math.floor(Math.random() * 5)]
+        heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)]
         heart.style.left = Math.random() * 100 + "%"
-        heart.style.animationDuration = Math.random() * 3 + 5 + "s"
+        heart.style.animationDelay = Math.random() * 8 + "s"
+        heart.style.fontSize = 15 + Math.random() * 10 + "px"
         heartsContainer.appendChild(heart)
 
-        // Remover corazón después de la animación
         setTimeout(() => {
-            if (heart.parentNode) {
-                heart.remove()
-            }
+            if (heart.parentNode) heart.parentNode.removeChild(heart)
         }, 8000)
-    }, 2000)
+    }
+
+    // Crear corazones iniciales
+    for (let i = 0; i < 3; i++) {
+        setTimeout(createHeart, i * 1500)
+    }
+
+    // Continuar creando corazones periódicamente
+    setInterval(createHeart, 3000)
 }
 
-// Pétalos cayendo
+// --- Pétalos cayendo ---
 function createFallingPetals() {
     const petalsContainer = document.getElementById("falling-petals")
     if (!petalsContainer) return
 
-    setInterval(() => {
+    const petalEmojis = ["🌸", "🌺", "🌹", "🌷", "🌻"]
+
+    const createPetal = () => {
         const petal = document.createElement("div")
         petal.className = "petal"
-        petal.innerHTML = ["🌸", "🌺", "🌻", "🌷", "🌹"][Math.floor(Math.random() * 5)]
+        petal.innerHTML = petalEmojis[Math.floor(Math.random() * petalEmojis.length)]
         petal.style.left = Math.random() * 100 + "%"
         petal.style.animationDuration = Math.random() * 4 + 8 + "s"
         petal.style.animationDelay = Math.random() * 3 + "s"
         petalsContainer.appendChild(petal)
 
-        // Remover pétalo después de la animación
         setTimeout(() => {
-            if (petal.parentNode) {
-                petal.remove()
-            }
+            if (petal.parentNode) petal.parentNode.removeChild(petal)
         }, 12000)
-    }, 1500)
+    }
+
+    setInterval(createPetal, 1500)
 }
 
-// Brillos alrededor del ramo
+// --- Brillos alrededor del ramo (pantalla final) ---
 function createBouquetSparkles() {
     const sparklesContainer = document.getElementById("bouquet-sparkles")
     if (!sparklesContainer) return
@@ -81,19 +106,16 @@ function createBouquetSparkles() {
     }
 }
 
-// Efecto de partículas al hacer click
+// --- Efecto de partículas al hacer click ---
 function createClickEffect(x, y) {
     for (let i = 0; i < 6; i++) {
         const particle = document.createElement("div")
-        particle.style.position = "absolute"
-        particle.style.left = x + "px"
-        particle.style.top = y + "px"
-        particle.style.width = "8px"
-        particle.style.height = "8px"
-        particle.style.background = "radial-gradient(circle, #FFB6C1, #FF69B4)"
-        particle.style.borderRadius = "50%"
-        particle.style.pointerEvents = "none"
-        particle.style.zIndex = "1000"
+        particle.style.cssText = `
+            position: fixed; left: ${x}px; top: ${y}px;
+            width: 8px; height: 8px;
+            background: radial-gradient(circle, #FFB6C1, #FF69B4);
+            border-radius: 50%; pointer-events: none; z-index: 1000;
+        `
 
         const angle = (Math.PI * 2 * i) / 6
         const velocity = 150
@@ -102,10 +124,7 @@ function createClickEffect(x, y) {
 
         document.body.appendChild(particle)
 
-        let posX = x
-        let posY = y
-        let opacity = 1
-        let scale = 1
+        let posX = x, posY = y, opacity = 1, scale = 1
 
         const animate = () => {
             posX += vx * 0.02
@@ -129,84 +148,74 @@ function createClickEffect(x, y) {
     }
 }
 
-// Reproducir sonido
-function playSuccessSound() {
-    try {
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)()
-        const oscillator = audioContext.createOscillator()
-        const gainNode = audioContext.createGain()
-
-        oscillator.connect(gainNode)
-        gainNode.connect(audioContext.destination)
-
-        oscillator.frequency.setValueAtTime(800, audioContext.currentTime)
-        oscillator.frequency.exponentialRampToValueAtTime(1200, audioContext.currentTime + 0.1)
-
-        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime)
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3)
-
-        oscillator.start(audioContext.currentTime)
-        oscillator.stop(audioContext.currentTime + 0.3)
-    } catch (error) {
-        console.log("Audio no disponible")
+// --- Brillos en tarjetas (hover en index) ---
+function createCardSparkles(card) {
+    for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+            const sparkle = document.createElement("div")
+            sparkle.style.cssText = `
+                position: absolute; width: 3px; height: 3px;
+                background: radial-gradient(circle, #ffb6c1, #ffc0cb, transparent);
+                border-radius: 50%;
+                left: ${Math.random() * 100}%; top: ${Math.random() * 100}%;
+                animation: sparkle 1s ease-out forwards;
+                pointer-events: none; z-index: 10;
+            `
+            card.appendChild(sparkle)
+            setTimeout(() => {
+                if (sparkle.parentNode) sparkle.parentNode.removeChild(sparkle)
+            }, 1000)
+        }, i * 100)
     }
 }
 
-// Inicializar efectos de botones
+// ============================================================
+// Inicialización global de efectos de botones
+// ============================================================
 document.addEventListener("DOMContentLoaded", () => {
-    // Efecto de click en botones
+    // Efecto ripple en botones
     document.querySelectorAll(".btn").forEach((button) => {
         button.addEventListener("click", function (e) {
-            // Crear efecto de ondas
             const ripple = document.createElement("span")
             const rect = this.getBoundingClientRect()
             const size = Math.max(rect.width, rect.height)
             const x = e.clientX - rect.left - size / 2
             const y = e.clientY - rect.top - size / 2
 
-            ripple.style.width = ripple.style.height = size + "px"
-            ripple.style.left = x + "px"
-            ripple.style.top = y + "px"
-            ripple.style.position = "absolute"
-            ripple.style.borderRadius = "50%"
-            ripple.style.background = "rgba(255, 255, 255, 0.5)"
-            ripple.style.transform = "scale(0)"
-            ripple.style.animation = "ripple 0.6s linear"
-            ripple.style.pointerEvents = "none"
-
+            ripple.style.cssText = `
+                width: ${size}px; height: ${size}px;
+                left: ${x}px; top: ${y}px;
+                position: absolute; border-radius: 50%;
+                background: rgba(255, 255, 255, 0.5);
+                transform: scale(0); animation: ripple 0.6s linear;
+                pointer-events: none;
+            `
             this.appendChild(ripple)
-
-            setTimeout(() => {
-                ripple.remove()
-            }, 600)
+            setTimeout(() => ripple.remove(), 600)
         })
 
-        // Efectos de hover
         button.addEventListener("mouseenter", () => {
             button.style.filter = "brightness(1.1) saturate(1.2)"
         })
-
         button.addEventListener("mouseleave", () => {
             button.style.filter = "brightness(1) saturate(1)"
         })
     })
 
-    // Animación de ripple
+    // Inyectar keyframe ripple dinámicamente
     const style = document.createElement("style")
-    style.textContent = `
-        @keyframes ripple {
-            to {
-                transform: scale(2);
-                opacity: 0;
-            }
-        }
-    `
+    style.textContent = `@keyframes ripple { to { transform: scale(2); opacity: 0; } }`
     document.head.appendChild(style)
 
-    // Efecto de partículas al hacer click 
+    // Click en el fondo dispara efecto de partículas
     document.addEventListener("click", (e) => {
         if (!e.target.classList.contains("btn") && !e.target.closest(".btn")) {
             createClickEffect(e.clientX, e.clientY)
         }
+    })
+
+    // Efecto sparkle en tarjetas de inicio (si existen)
+    document.querySelectorAll(".option-card").forEach((card) => {
+        card.addEventListener("mouseenter", () => createCardSparkles(card))
     })
 })

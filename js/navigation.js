@@ -13,7 +13,7 @@ function goBack() {
 }
 
 function preloadPages() {
-    const pages = ["index.html", "game-scene.html", "romantic-message.html", "final-screen.html"]
+    const pages = ["index.html", "park-scene.html", "romantic-message.html", "final-screen.html"]
 
     pages.forEach((page) => {
         const link = document.createElement("link")

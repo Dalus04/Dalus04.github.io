@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuerdos de Nosotros - Parque de Recuerdos</title>
+    <meta name="description" content="Encuentra los recuerdos ocultos en el Parque - Nuestro Mundo">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/buttons.css">
@@ -88,7 +89,8 @@
     </div>
 
     <!-- Botón detector visual -->
-    <button class="hint-button" id="hint-button" onclick="useHint()" title="Usar pista visual">
+    <button class="hint-button" id="hint-button" onclick="useHint()" title="Usar pista visual"
+        aria-label="Usar pista para encontrar objetos">
         <span class="hint-icon">🔍</span>
         <span class="hint-text">Pista</span>
         <div class="hint-cooldown" id="hint-cooldown"></div>
