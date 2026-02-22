@@ -553,6 +553,21 @@
                     <span class="button-icon">🎯</span>
                 </div>
             </div>
+
+            <!-- Papelitos de amor -->
+            <div class="option-card love-notes" onclick="goToLoveNotes()">
+                <div class="card-icon">🎀</div>
+                <h2 class="card-title">Papelitos de Amor</h2>
+                <div class="card-decoration">
+                    <span class="decoration-heart">💌</span>
+                    <span class="decoration-heart">💞</span>
+                    <span class="decoration-heart">💌</span>
+                </div>
+                <div class="card-button">
+                    <span class="button-text">Descubrir</span>
+                    <span class="button-icon">🎀</span>
+                </div>
+            </div>
         </div>
 
         <!-- Mensaje romántico -->
@@ -640,6 +655,15 @@
             document.body.classList.add('fade-out')
             setTimeout(() => {
                 window.location.href = 'mini-game.html'
+            }, 800)
+        }
+
+        function goToLoveNotes() {
+            console.log("Navegando a papelitos de amor...")
+            // Efecto de transición
+            document.body.classList.add('fade-out')
+            setTimeout(() => {
+                window.location.href = 'papelitos.html'
             }, 800)
         }
 
