@@ -108,6 +108,9 @@
                     <input type="text" id="gallerySearch" placeholder="Buscar papelito..." class="search-input">
                     <div class="gallery-color-filters" id="galleryColorFilters"></div>
                 </div>
+                <div class="gallery-phrases-bar">
+                    <button class="btn-phrases-view" id="btnPhrasesView">📜 Ver todas las frases en orden</button>
+                </div>
                 <div class="gallery-grid" id="galleryGrid"></div>
             </div>
 
@@ -153,6 +156,18 @@
 
     <!-- Confetti container -->
     <div class="confetti-container" id="confettiContainer"></div>
+
+    <!-- Phrases Modal -->
+    <div class="phrases-overlay" id="phrasesOverlay">
+        <div class="phrases-modal">
+            <div class="phrases-modal-header">
+                <h2 class="phrases-modal-title">📜 Todas las Frases</h2>
+                <button class="phrases-close-btn" id="phrasesCloseBtn" aria-label="Cerrar">&#10005;</button>
+            </div>
+            <div class="phrases-modal-body" id="phrasesModalBody"></div>
+        </div>
+    </div>
+
     <script src="js/navigation.js"></script>
     <script src="js/papelitos.js"></script>
 </body>
